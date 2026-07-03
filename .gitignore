@@ -34,5 +34,4 @@ dist-ssr
 *.sln
 *.sw?
 .claude/
-public/videos/
-public/videos/
+

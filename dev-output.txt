@@ -1,0 +1,72 @@
+
+> dev
+> vite dev
+
+(node:48804) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Port 8080 is in use, trying another one...
+Port 8081 is in use, trying another one...
+Port 8082 is in use, trying another one...
+Port 8083 is in use, trying another one...
+Port 8084 is in use, trying another one...
+Port 8085 is in use, trying another one...
+
+  VITE v7.3.2  ready in 1179 ms
+
+  ➜  Local:   http://localhost:8086/
+  ➜  Network: http://192.168.0.104:8086/
+[vite] connected.
+1:47:28 am [vite] (client) hmr update /src/styles.css?direct, /src/components/PackagingAtlas.tsx
+1:47:28 am [vite] (ssr) page reload src/components/PackagingAtlas.tsx
+[vite] program reload
+1:47:28 am [vite] (client) hmr invalidate /src/components/PackagingAtlas.tsx Could not Fast Refresh ("ATLAS" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+1:47:28 am [vite] (client) hmr update /src/routes/products.tsx?tsr-split=component
+1:47:33 am [vite] (client) hmr update /src/styles.css?direct, /src/components/PackagingAtlas.tsx
+1:47:33 am [vite] (ssr) page reload src/components/PackagingAtlas.tsx
+1:47:33 am [vite] (client) hmr invalidate /src/components/PackagingAtlas.tsx Could not Fast Refresh ("ATLAS" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+1:47:33 am [vite] (client) hmr update /src/routes/products.tsx?tsr-split=component
+1:47:55 am [vite] (client) hmr update /src/styles.css?direct, /src/components/PackagingAtlas.tsx
+1:47:55 am [vite] (ssr) page reload src/components/PackagingAtlas.tsx
+1:47:55 am [vite] (client) hmr invalidate /src/components/PackagingAtlas.tsx Could not Fast Refresh ("ATLAS" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+1:47:55 am [vite] (client) hmr update /src/routes/products.tsx?tsr-split=component
+1:48:23 am [vite] (client) hmr update /src/styles.css?direct, /src/components/PackagingAtlas.tsx
+1:48:23 am [vite] (ssr) page reload src/components/PackagingAtlas.tsx
+11:25:25 am [vite] (client) hmr update /src/styles.css?direct, /src/components/TapeBreak.tsx
+11:25:25 am [vite] (ssr) page reload src/components/TapeBreak.tsx
+11:26:55 am [vite] (client) hmr update /src/styles.css?direct, /src/components/TapeBreak.tsx
+11:26:55 am [vite] (ssr) page reload src/components/TapeBreak.tsx
+11:30:54 am [vite] (client) hmr update /src/styles.css?direct, /src/components/TapeBreak.tsx
+11:30:54 am [vite] (ssr) page reload src/components/TapeBreak.tsx
+11:53:41 am [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+11:53:41 am [vite] (ssr) page reload src/routes/index.tsx
+[vite] program reload
+11:57:45 am [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+11:57:45 am [vite] (ssr) page reload src/routes/index.tsx
+11:58:47 am [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+11:58:47 am [vite] (ssr) page reload src/routes/index.tsx
+12:02:57 pm [vite] (client) hmr update /src/styles.css?direct, /src/components/PackagingAtlas.tsx
+12:02:57 pm [vite] (ssr) page reload src/components/PackagingAtlas.tsx
+12:03:19 pm [vite] (client) hmr update /src/styles.css?direct, /src/components/PackagingAtlas.tsx
+12:03:19 pm [vite] (ssr) page reload src/components/PackagingAtlas.tsx
+12:03:24 pm [vite] (client) hmr update /src/styles.css?direct, /src/components/PackagingAtlas.tsx
+12:03:24 pm [vite] (ssr) page reload src/components/PackagingAtlas.tsx
+12:03:33 pm [vite] (client) hmr update /src/styles.css?direct, /src/components/PackagingAtlas.tsx
+12:03:33 pm [vite] (ssr) page reload src/components/PackagingAtlas.tsx
+12:16:42 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+12:16:42 pm [vite] (ssr) page reload src/routes/index.tsx
+12:16:53 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+12:16:53 pm [vite] (ssr) page reload src/routes/index.tsx
+12:18:09 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+12:18:09 pm [vite] (ssr) page reload src/routes/index.tsx
+12:37:31 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+12:37:31 pm [vite] (ssr) page reload src/routes/index.tsx
+12:37:54 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+12:37:54 pm [vite] (ssr) page reload src/routes/index.tsx
+12:38:03 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+12:38:03 pm [vite] (ssr) page reload src/routes/index.tsx
+12:38:57 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+12:38:57 pm [vite] (ssr) page reload src/routes/index.tsx
+1:08:24 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+1:08:24 pm [vite] (ssr) page reload src/routes/index.tsx
+1:08:27 pm [vite] (client) hmr update /src/styles.css?direct, /src/routes/index.tsx, /src/routes/index.tsx?tsr-split=component
+1:08:27 pm [vite] (ssr) page reload src/routes/index.tsx

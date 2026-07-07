@@ -375,7 +375,7 @@ export function GlobalPresence() {
                   fontSize:    "0.86em",
                   color:       "oklch(0.50 0.042 64)",
                 }}>
-                  17 markets.
+                  17+ markets.
                 </em>
               </h2>
 
@@ -389,7 +389,7 @@ export function GlobalPresence() {
                   marginBottom: "1.8rem",
                 }}
               >
-                From our press rooms in India, DGV ships precision print and
+                From our press rooms in India, DGV Company ships precision print and
                 packaging to five continents — each delivery held to the same
                 tolerance of colour, registration, and finish.
               </p>
@@ -402,13 +402,13 @@ export function GlobalPresence() {
                 style={{
                   fontFamily:    "var(--font-sans)",
                   fontSize:      "0.6rem",
-                  fontWeight:    400,
+                  fontWeight:    600,
                   letterSpacing: "0.28em",
                   textTransform: "uppercase",
-                  color:         "oklch(0.46 0.022 62)",
+                  color:         "oklch(0.30 0.026 60)",
                 } as React.CSSProperties}
               >
-                17 markets&ensp;·&ensp;5 continents&ensp;·&ensp;15+ years
+                17+ markets&ensp;·&ensp;5 continents&ensp;·&ensp;15+ years
               </motion.p>
             </motion.div>
           </div>

@@ -136,7 +136,7 @@ const SEO_SECTIONS: SeoSection[] = [
   {
     id: "commercial-printing",
     code: "03",
-    title: "Printing and Barcode Labels",
+    title: "Commercial Printing",
     positioning:
       "Commercial print fails in two ways: colour drift across a long run, and quality variation between reorders. Our press workflow is calibrated to ISO 12647-2 — the international publishing standard — so every job leaves with a documented Delta E measurement, not an impression.",
     differentiators: [
@@ -252,7 +252,7 @@ const SEO_SECTIONS: SeoSection[] = [
           "We maintain substrate inventory for common exhibition formats. Standard items turn in 3–5 working days from artwork approval. Bespoke die-cut or foiled formats: 7 working days minimum.",
       },
       {
-        label: "Studio working directly from brand guidelines",
+        label: "Print Studio working directly from brand guidelines",
         detail:
           "We produce print-ready artwork from your brand guidelines, not through an agency intermediary. No interpretation errors, no quality gap between concept and press.",
       },

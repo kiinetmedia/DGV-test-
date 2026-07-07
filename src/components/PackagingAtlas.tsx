@@ -25,13 +25,22 @@ import bagsLuxury from "@/assets/products/bags-luxury.png";
 import bagsRetailCarry from "@/assets/products/bags-retail-carry.png";
 import bagsCustomPrinted from "@/assets/products/bags-custom-printed.png";
 
-// Printing and Barcode Labels
+// Commercial Printing
 import printBrochure from "@/assets/products/print-brochure.png";
 import printCatalogue from "@/assets/products/print-catalogue.png";
 import printFlyers from "@/assets/products/print-flyers.png";
 import printLetterhead from "@/assets/products/print-letterhead.png";
 import printNotebooks from "@/assets/products/print-notebooks.png";
 import printCorporateStationery from "@/assets/products/print-corporate-stationery.png";
+
+// Barcode Labels
+import labelProductBarcode from "@/assets/products/label-product-barcode.png";
+import labelPharmaceutical from "@/assets/products/label-pharmaceutical.png";
+import labelCosmetic from "@/assets/products/label-cosmetic.png";
+import labelFmcgFood from "@/assets/products/label-fmcg-food.png";
+import labelChemicalIndustrial from "@/assets/products/label-chemical-industrial.png";
+import labelVinylTransparent from "@/assets/products/label-vinyl-transparent.png";
+import labelTamperEvident from "@/assets/products/label-tamper-evident.png";
 
 // Calendars & Diaries
 import calWall from "@/assets/products/cal-wall.jpeg";
@@ -352,7 +361,7 @@ const ATLAS: Category[] = [
   {
     id: "commercial-printing",
     code: "03",
-    title: "Printing and Barcode Labels",
+    title: "Commercial Printing",
     intro:
       "High-quality commercial print across brochures, catalogues, books and stationery — produced consistently at volume with ISO-calibrated colour management.",
     image: printBrochure,
@@ -475,8 +484,152 @@ const ATLAS: Category[] = [
     ],
   },
   {
-    id: "calendars-diaries",
+    id: "barcode-labels",
     code: "04",
+    title: "Barcode Labels",
+    intro:
+      "Precision-printed self-adhesive labels for product identification, compliance and traceability — produced on high-speed narrow-web flexographic presses across paper, film and specialty label stocks.",
+    image: labelProductBarcode,
+    imageAlt: "Roll and sheet barcode labels applied to bottles, jars, cartons and boxes with matching gold hexagon brand mark",
+    subtypes: [
+      {
+        id: "product-barcode-labels",
+        name: "Product & Barcode Labels",
+        tagline: "Every unit, identified and traceable.",
+        description:
+          "Product and barcode labels are produced on narrow-web flexographic presses for exceptional print consistency at volume, with printing, varnishing, die-cutting, slitting and rewinding completed in a single continuous pass.",
+        capabilities: [
+          "Single-pass print, varnish and die-cut",
+          "Water-based, UV-curable and LED UV ink systems",
+          "Slitting and rewinding to roll or sheet",
+          "Sequential and variable barcode data",
+        ],
+        useCases: ["Product identification", "Inventory and warehouse tracking", "Retail point-of-sale scanning"],
+        materials: ["Self-adhesive paper", "PP (BOPP)", "PET", "Specialty label stocks"],
+        finishes: ["Gloss and matte lamination", "UV varnish coating", "Die-cut to shape"],
+        pairings: ["commercial-printing", "marketing-branding"],
+        image: labelProductBarcode,
+        imageAlt: "Roll and sheet barcode labels applied to bottles, jars, cartons and boxes with matching gold hexagon brand mark",
+      },
+      {
+        id: "pharmaceutical-labels",
+        name: "Pharmaceutical Labels",
+        tagline: "Precision where accuracy is non-negotiable.",
+        description:
+          "Pharmaceutical labels are produced with the same single-pass flexographic precision used across our label range — printing, laminating and die-cutting inline for consistent, legible results across every unit in the run.",
+        capabilities: [
+          "Variable information printing (batch, expiry, dosage)",
+          "Water-based, UV-curable and LED UV ink systems",
+          "Self-adhesive and specialty pharma-grade stocks",
+          "Narrow-web precision die-cutting",
+        ],
+        useCases: ["Pharmaceutical packaging", "Dosage and batch compliance", "Cold-chain and blister labelling"],
+        materials: ["Self-adhesive paper", "PET", "Specialty label stocks"],
+        finishes: ["Matte and gloss lamination", "UV varnish coating", "Die-cut to shape"],
+        pairings: ["commercial-printing", "rigid-boxes"],
+        image: labelPharmaceutical,
+        imageAlt: "Pharmaceutical labels on vials, amber bottles, tablet jars and cartons with matching gold hexagon brand mark",
+      },
+      {
+        id: "cosmetic-labels",
+        name: "Cosmetic Labels",
+        tagline: "Shelf presence, printed to specification.",
+        description:
+          "Cosmetic labels are produced on narrow-web flexographic presses with inline lamination and UV varnish, delivering the print consistency and finish quality that beauty and personal care packaging demands.",
+        capabilities: [
+          "High-opacity metallic and specialty finishes",
+          "Water-based, UV-curable and LED UV ink systems",
+          "Transparent and film-based label stocks",
+          "Narrow-web precision die-cutting",
+        ],
+        useCases: ["Beauty and personal care retail", "Boutique and premium cosmetic lines", "Gift and travel packaging"],
+        materials: ["Vinyl", "Transparent films", "Metallic label stocks", "PET"],
+        finishes: ["Gloss and matte lamination", "UV varnish coating", "Die-cut to shape"],
+        pairings: ["rigid-boxes", "marketing-branding"],
+        image: labelCosmetic,
+        imageAlt: "Cosmetic labels on serum bottles, pump dispensers, tubes and jars with matching gold hexagon brand mark",
+      },
+      {
+        id: "fmcg-food-labels",
+        name: "FMCG & Food Labels",
+        tagline: "Built for volume. Compliant by design.",
+        description:
+          "FMCG and food & beverage labels are produced at high speed on narrow-web flexographic presses, with substrate and ink systems selected to meet food-contact and durability requirements at production volume.",
+        capabilities: [
+          "High-speed narrow-web production",
+          "Water-based, UV-curable and LED UV ink systems",
+          "Waterproof and moisture-resistant stocks",
+          "Slitting and rewinding to roll or sheet",
+        ],
+        useCases: ["FMCG retail packaging", "Food and beverage labelling", "High-volume distribution and export"],
+        materials: ["Self-adhesive paper", "PP (BOPP)", "Waterproof materials"],
+        finishes: ["Gloss and matte lamination", "UV varnish coating", "Die-cut to shape"],
+        pairings: ["commercial-printing", "corrugated-boxes"],
+        image: labelFmcgFood,
+        imageAlt: "FMCG and food labels on cooking oil, sauce and jam jars, snack pouches, cartons and wrappers with matching gold hexagon brand mark",
+      },
+      {
+        id: "chemical-labels",
+        name: "Chemical & Industrial Labels",
+        tagline: "Durable identification for demanding environments.",
+        description:
+          "Chemical and industrial labels are produced on durable, chemical- and abrasion-resistant stocks, printed inline with the same flexographic precision used across our narrow-web label range.",
+        capabilities: [
+          "Chemical and abrasion-resistant stocks",
+          "Water-based, UV-curable and LED UV ink systems",
+          "Sequential and variable data printing",
+          "Narrow-web precision die-cutting",
+        ],
+        useCases: ["Chemical drum and container labelling", "Industrial and logistics identification", "Shipping and warehouse tracking"],
+        materials: ["PP (BOPP)", "PET", "Waterproof materials"],
+        finishes: ["Matte lamination", "UV varnish coating", "Die-cut to shape"],
+        pairings: ["corrugated-boxes", "commercial-printing"],
+        image: labelChemicalIndustrial,
+        imageAlt: "Chemical and industrial labels with GHS hazard pictograms on drums, pails and containers with matching gold hexagon brand mark",
+      },
+      {
+        id: "vinyl-transparent-labels",
+        name: "Vinyl & Transparent Labels",
+        tagline: "The no-label look, printed to precision.",
+        description:
+          "Vinyl and transparent labels are printed on clear and film-based stocks for a seamless, no-label aesthetic — produced with the same inline lamination and die-cutting precision as our full label range.",
+        capabilities: [
+          "Clear and film-based substrates",
+          "Water-based, UV-curable and LED UV ink systems",
+          "No-label-look application",
+          "Narrow-web precision die-cutting",
+        ],
+        useCases: ["Premium beverage and cosmetic packaging", "Window and glass application", "Brand-forward retail presentation"],
+        materials: ["Transparent films", "Vinyl", "PET"],
+        finishes: ["Gloss lamination", "UV varnish coating", "Die-cut to shape"],
+        pairings: ["marketing-branding", "rigid-boxes"],
+        image: labelVinylTransparent,
+        imageAlt: "Vinyl labels on dark bottles, pouches and jars, and transparent no-label-look labels on clear bottles and jars, with matching gold hexagon brand mark",
+      },
+      {
+        id: "tamper-evident-labels",
+        name: "Tamper-Evident & Security Labels",
+        tagline: "Visible proof the seal was never broken.",
+        description:
+          "Tamper-evident and security labels are engineered to leave a visible void or fracture pattern on removal, giving buyers a clear, reliable signal of product integrity from production through to point of sale.",
+        capabilities: [
+          "Void and fracture-pattern security stocks",
+          "Water-based, UV-curable and LED UV ink systems",
+          "Sequential numbering and security codes",
+          "Narrow-web precision die-cutting",
+        ],
+        useCases: ["Pharmaceutical and healthcare seals", "Food and beverage safety seals", "Warranty and electronics packaging"],
+        materials: ["Security label stocks", "PET", "Self-adhesive paper"],
+        finishes: ["Matte lamination", "UV varnish coating", "Die-cut to shape"],
+        pairings: ["commercial-printing", "rigid-boxes"],
+        image: labelTamperEvident,
+        imageAlt: "Tamper-evident void labels, holographic security seals, QR verification and security code cards with matching gold hexagon brand mark",
+      },
+    ],
+  },
+  {
+    id: "calendars-diaries",
+    code: "05",
     title: "Calendars & Diaries",
     intro:
       "Branded calendars and diaries designed and produced in-house — a daily brand touchpoint engineered to be used, kept, and seen every day of the year.",
@@ -582,7 +735,7 @@ const ATLAS: Category[] = [
   },
   {
     id: "marketing-branding",
-    code: "05",
+    code: "06",
     title: "Marketing & Branding",
     intro:
       "Print collaterals that carry your brand into presentations, exhibitions and decision-maker hands — finished to a standard that communicates before a word is read.",
@@ -615,7 +768,7 @@ const ATLAS: Category[] = [
         description:
           "Corporate profiles and annual reports are produced to the highest standard in our portfolio — the document that represents an organisation to its stakeholders, investors and board. We produce these with the full range of premium finishes, specialty papers, and structural complexity that the occasion demands.",
         capabilities: [
-          "Studio art direction and layout",
+          "Print Studio art direction and layout",
           "Premium specialty paper stocks",
           "Case binding and ribbon markers",
           "Multiple insert and section configurations",
@@ -688,7 +841,7 @@ const ATLAS: Category[] = [
   },
   {
     id: "corrugated-boxes",
-    code: "06",
+    code: "07",
     title: "Corrugated Boxes",
     intro:
       "Industrial-strength corrugated packaging for e-commerce, transit and storage — engineered to real load and stacking conditions across all flute profiles and print options.",
@@ -797,7 +950,8 @@ const ATLAS: Category[] = [
 const CAT_LABELS: Record<string, string> = {
   "rigid-boxes": "Rigid Boxes",
   "paper-bags": "Paper Bags",
-  "commercial-printing": "Printing and Barcode Labels",
+  "commercial-printing": "Commercial Printing",
+  "barcode-labels": "Barcode Labels",
   "calendars-diaries": "Calendars & Diaries",
   "marketing-branding": "Marketing & Branding",
   "corrugated-boxes": "Corrugated Boxes",
@@ -1740,7 +1894,7 @@ function DiscoveryNav({
       {/* Footer */}
       <div className="px-8 md:px-10 py-6 border-t border-[var(--sand-300)]/30 mt-auto">
         <p className="text-[7.5px] uppercase tracking-[0.28em] text-[var(--sand-400)] leading-loose">
-          6 Categories · 33 Formats
+          7 Categories · 40 Formats
         </p>
       </div>
     </motion.div>

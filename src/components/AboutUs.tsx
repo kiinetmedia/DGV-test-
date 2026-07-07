@@ -4,7 +4,7 @@ import aboutImage from "@/assets/about-us.png";
 
 const STATS = [
   { value: "25+",  label: "Years of Excellence" },
-  { value: "90+",  label: "Reputed Clients" },
+  { value: "100+", label: "Reputed Clients" },
   { value: "17",   label: "Global Markets" },
   { value: "100%", label: "In-House Production" },
 ];
@@ -64,7 +64,7 @@ export function AboutUs() {
               style={{ color: "var(--sand-700)" }}
             >
               DGV Company is Mumbai's premier integrated commercial design, printing
-              and packaging studio. Built on a foundation of Passion, Quality and
+              and packaging company. Built on a foundation of Passion, Quality and
               Innovation, we combine state-of-the-art machinery with deep craft
               expertise to serve 90+ reputed brands — delivering custom packaging,
               print and merchandise solutions that hit every deadline and exceed every

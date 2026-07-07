@@ -25,7 +25,8 @@ const NAV = [
     links: [
       { label: "Rigid Boxes",          href: "/products#rigid-boxes" },
       { label: "Paper Bags",          href: "/products#paper-bags" },
-      { label: "Printing and Barcode Labels", href: "/products#commercial-printing" },
+      { label: "Commercial Printing", href: "/products#commercial-printing" },
+      { label: "Barcode Labels",      href: "/products#barcode-labels" },
       { label: "Calendars & Diaries", href: "/products#calendars-diaries" },
       { label: "Marketing & Branding",href: "/products#marketing-branding" },
       { label: "Corrugated Boxes",    href: "/products#corrugated-boxes" },

@@ -468,7 +468,7 @@ const ATLAS_CONFIG: FlatAtlasConfig = {
   atlasLabel: "Services Atlas",
   introTitle: (
     <>
-      Nine services beyond
+      Services beyond
       <br />
       the press.
     </>
@@ -514,7 +514,7 @@ export const Route = createFileRoute("/value-added-services")({
       { property: "og:title", content: "Value-Added Services — DGV Company" },
       {
         property: "og:description",
-        content: "Nine services beyond the press. One complete partnership.",
+        content: "Services beyond the press. One complete partnership.",
       },
     ],
     scripts: [

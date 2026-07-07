@@ -80,8 +80,8 @@ function HeroStat({ icon, value, label, delay }: { icon: React.ReactNode; value:
         {icon}
       </div>
       <div>
-        <div className="font-display text-[1.1rem] leading-none text-foreground tracking-tight">{value}</div>
-        <div className="mt-1 text-[9px] uppercase tracking-[0.2em] text-[var(--sand-700)]">{label}</div>
+        <div className="font-display font-semibold text-[1.45rem] leading-none text-foreground tracking-tight">{value}</div>
+        <div className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/80">{label}</div>
       </div>
     </motion.div>
   );
@@ -244,10 +244,10 @@ export function PremiumHero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-          className="mt-6 font-display text-[clamp(2.8rem,5.4vw,5.4rem)] leading-[0.93] tracking-tight"
+          className="mt-6 font-display font-medium text-[clamp(2.8rem,5.4vw,5.4rem)] leading-[1.05] tracking-tight"
         >
-          Packaging &amp; Label<br/>Solutions<br/>
-          <em className="not-italic font-light italic text-[clamp(2.2rem,4.2vw,4.2rem)] text-[var(--sand-700)]">
+          Printing, Packaging<br/>and Label Solutions&hellip;
+          <em className="not-italic font-light italic block mt-3 text-[clamp(2.2rem,4.2vw,4.2rem)] leading-[1.05] text-[var(--sand-700)]">
             Engineered for<br/>Performance.
           </em>
         </motion.h1>
@@ -257,7 +257,7 @@ export function PremiumHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
-          className="mt-6 max-w-[400px] text-[var(--sand-700)] leading-relaxed text-[0.95rem]"
+          className="mt-6 max-w-[400px] text-foreground/80 leading-relaxed text-[0.95rem]"
         >
           Serving FMCG, Pharmaceutical, Food &amp; Beverage, Personal Care and
           Industrial brands with precision printing and packaging solutions

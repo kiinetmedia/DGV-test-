@@ -596,36 +596,42 @@ function PackagingComposition() {
 const PRODUCT_ROWS = [
   {
     code: "01",
-    title: "Printing and Barcode Labels",
+    title: "Commercial Printing",
     description: "Brochures, catalogues, letterheads, notebooks and corporate stationery produced to ISO colour standards with documented reorder consistency.",
     href: "/products#commercial-printing",
   },
   {
     code: "02",
+    title: "Barcode Labels",
+    description: "Product, pharmaceutical, cosmetic, FMCG, food and chemical labels in vinyl, transparent and tamper-evident formats — precision printed for accurate, scannable results at volume.",
+    href: "/products#barcode-labels",
+  },
+  {
+    code: "03",
     title: "Paper Bags",
     description: "Kraft, laminated, luxury and retail carry bags with custom print. Structured handles, strong construction, consistent finish across high-volume runs.",
     href: "/products#paper-bags",
   },
   {
-    code: "03",
+    code: "04",
     title: "Rigid Boxes",
     description: "Magnetic closure, drawer, lid & base, foldable rigid and jewellery formats — engineered to specification with first-article verification before volume production.",
     href: "/products#rigid-boxes",
   },
   {
-    code: "04",
+    code: "05",
     title: "Calendars & Diaries",
     description: "Wall, desk, corporate and executive formats — custom designed with precision binding and on-time delivery for annual production cycles.",
     href: "/products#calendars-diaries",
   },
   {
-    code: "05",
+    code: "06",
     title: "Marketing & Branding",
-    description: "Catalogues, corporate profiles, annual reports, presentation folders, danglers and exhibition materials designed to convert and built to impress.",
+    description: "Catalogues, corporate profiles, annual reports, presentation folders, estimate pads, danglers and other exhibition materials designed to convert and built to impress.",
     href: "/products#marketing-branding",
   },
   {
-    code: "06",
+    code: "07",
     title: "Corrugated Boxes",
     description: "E-commerce, standard, heavy-duty and die-cut corrugated formats with custom print — structural engineering for transit protection at every scale.",
     href: "/products#corrugated-boxes",
@@ -890,7 +896,7 @@ function Solutions() {
       eyebrow="Solutions"
       headline="Every process,"
       subheadline="one partnership."
-      intro="Offset to digital, conversion to binding — we operate the full production stack so your brief moves from artwork to delivery without leaving a single supplier."
+      intro="With complete in-house production capabilities—from offset and digital printing to binding and finishing—we deliver a seamless, end-to-end experience, ensuring your project stays under one expert partner from concept to completion."
       rows={SOLUTION_ROWS}
       ctaLabel="Explore All Solutions"
       ctaHref="/solutions"

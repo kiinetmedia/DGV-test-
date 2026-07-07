@@ -9,6 +9,8 @@ import {
   useMotionTemplate,
 } from "motion/react";
 
+import dgvLogo from "../assets/dgv-logo-full.png";
+
 const EASE = [0.16, 1, 0.3, 1] as const;
 const EASE_SOFT: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -58,18 +60,31 @@ const PRODUCTS: ProductCategory[] = [
     ],
   },
   {
-    title: "Printing and Barcode Labels",
+    title: "Commercial Printing",
     href: "/products#commercial-printing",
     sub: [
       { name: "Brochures",           href: "/products#brochures" },
       { name: "Catalogues",          href: "/products#catalogues" },
       { name: "Flyers / Leaflets",   href: "/products#flyers-leaflets" },
-      { name: "Estimate Pads",       href: "/products#letterheads-envelopes" },
       { name: "Letterheads",         href: "/products#letterheads-envelopes" },
       { name: "Envelopes",           href: "/products#letterheads-envelopes" },
       { name: "Notebooks",           href: "/products#book-printing" },
       { name: "Book Printing",       href: "/products#book-printing" },
       { name: "Corporate Stationery",href: "/products#corporate-stationery" },
+    ],
+  },
+  {
+    title: "Barcode Labels",
+    href: "/products#barcode-labels",
+    sub: [
+      { name: "Product Labels",         href: "/products#barcode-labels" },
+      { name: "Pharmaceutical Labels",  href: "/products#barcode-labels" },
+      { name: "Cosmetic Labels",        href: "/products#barcode-labels" },
+      { name: "FMCG Labels",            href: "/products#barcode-labels" },
+      { name: "Food Labels",            href: "/products#barcode-labels" },
+      { name: "Chemical Labels",        href: "/products#barcode-labels" },
+      { name: "Vinyl / Transparent Labels", href: "/products#barcode-labels" },
+      { name: "Tamper-Evident Labels",  href: "/products#barcode-labels" },
     ],
   },
   {
@@ -93,6 +108,7 @@ const PRODUCTS: ProductCategory[] = [
       { name: "Corporate Profiles",    href: "/products#corporate-profiles" },
       { name: "Annual Reports",        href: "/products#corporate-profiles" },
       { name: "Presentation Folders",  href: "/products#presentation-folders" },
+      { name: "Estimate Pads",         href: "/products#marketing-branding" },
       { name: "Danglers / Wobblers",   href: "/products#danglers-wobblers" },
       { name: "Posters",               href: "/products#marketing-branding" },
       { name: "Exhibition Materials",  href: "/products#exhibition-materials" },
@@ -778,20 +794,14 @@ export function PremiumNav() {
           <a
             href="/"
             onMouseEnter={closeNow}
-            className="flex flex-col items-center gap-[5px] select-none shrink-0"
+            className="flex items-center select-none shrink-0"
           >
-            <span
-              className="font-display leading-none"
-              style={{ fontSize: "1.75rem", letterSpacing: "0.22em", fontWeight: 600 }}
-            >
-              DGV
-            </span>
-            <span
-              className="font-sans uppercase leading-none text-foreground/70"
-              style={{ fontSize: "7px", letterSpacing: "0.48em", fontWeight: 500 }}
-            >
-              COMPANY
-            </span>
+            <img
+              src={dgvLogo}
+              alt="DGV Company"
+              draggable={false}
+              className="h-9 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop nav */}

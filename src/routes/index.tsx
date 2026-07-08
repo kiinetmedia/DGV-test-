@@ -896,7 +896,7 @@ function Solutions() {
       eyebrow="Solutions"
       headline="Every process,"
       subheadline="one partnership."
-      intro="With complete in-house production capabilities—from offset and digital printing to binding and finishing—we deliver a seamless, end-to-end experience, ensuring your project stays under one expert partner from concept to completion."
+      intro="With state of the art production capabilities—from offset and digital printing to binding and finishing—we deliver a seamless, end-to-end experience, ensuring your project stays under one expert partner from concept to completion."
       rows={SOLUTION_ROWS}
       ctaLabel="Explore All Solutions"
       ctaHref="/solutions"

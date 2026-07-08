@@ -77,7 +77,21 @@ const COUNTRY_PATHS: Record<string, string> = {};
   const id = parseInt(f.id, 10);
   for (const [key, code] of Object.entries(ISO_CODES)) {
     if (id === code) {
-      COUNTRY_PATHS[key] = featureToSVGPath(f);
+      let feature = f;
+      // France's ISO code (250) also covers French Guiana, whose polygon sits
+      // in South America — drop it so only mainland France/Corsica highlight.
+      if (key === "france" && f.geometry?.type === "MultiPolygon") {
+        feature = {
+          ...f,
+          geometry: {
+            ...f.geometry,
+            coordinates: f.geometry.coordinates.filter(
+              (poly: [number, number][][]) => poly[0][0][0] > -20
+            ),
+          },
+        };
+      }
+      COUNTRY_PATHS[key] = featureToSVGPath(feature);
     }
   }
 });

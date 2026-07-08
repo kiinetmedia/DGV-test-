@@ -6,7 +6,6 @@ const STATS = [
   { value: "25+",  label: "Years of Excellence" },
   { value: "100+", label: "Reputed Clients" },
   { value: "17",   label: "Global Markets" },
-  { value: "100%", label: "In-House Production" },
 ];
 
 export function AboutUs() {
@@ -113,7 +112,7 @@ export function AboutUs() {
             </div>
 
             {/* Stats row */}
-            <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-y-8 gap-x-4">
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-y-8 gap-x-10">
               {STATS.map((s, i) => (
                 <motion.div
                   key={s.label}

@@ -3,65 +3,6 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 import heroPackage from "../assets/hero-image.png";
 
-/* ─── INDUSTRY ICONS ──────────────────────────────────────────────────────── */
-
-function IconFMCG() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <path d="M16 10a4 4 0 0 1-8 0"/>
-    </svg>
-  );
-}
-
-function IconPharma() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-      <path d="M10.5 20H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2"/>
-      <path d="m14 19 3 3 7-7"/>
-    </svg>
-  );
-}
-
-function IconFnB() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-      <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
-      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
-      <line x1="6" y1="2" x2="6" y2="4"/>
-      <line x1="10" y1="2" x2="10" y2="4"/>
-      <line x1="14" y1="2" x2="14" y2="4"/>
-    </svg>
-  );
-}
-
-function IconPersonalCare() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-      <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
-    </svg>
-  );
-}
-
-function IconIndustrial() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-      <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/>
-      <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-    </svg>
-  );
-}
-
-const INDUSTRIES = [
-  { label: "FMCG",           Icon: IconFMCG        },
-  { label: "Pharmaceuticals", Icon: IconPharma      },
-  { label: "Food & Beverage", Icon: IconFnB         },
-  { label: "Personal Care",  Icon: IconPersonalCare },
-  { label: "Industrial",     Icon: IconIndustrial   },
-];
-
 /* ─── STAT CARDS ──────────────────────────────────────────────────────────── */
 
 function HeroStat({ icon, value, label, delay }: { icon: React.ReactNode; value: string; label: string; delay: number }) {
@@ -80,7 +21,7 @@ function HeroStat({ icon, value, label, delay }: { icon: React.ReactNode; value:
         {icon}
       </div>
       <div>
-        <div className="font-display font-semibold text-[1.45rem] leading-none text-foreground tracking-tight">{value}</div>
+        <div className="font-display font-bold text-[1.9rem] leading-none text-foreground tracking-tight">{value}</div>
         <div className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/80">{label}</div>
       </div>
     </motion.div>
@@ -244,10 +185,10 @@ export function PremiumHero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-          className="mt-6 font-display font-medium text-[clamp(2.8rem,5.4vw,5.4rem)] leading-[1.05] tracking-tight"
+          className="mt-7 font-display font-medium text-[clamp(2.8rem,5.4vw,5.4rem)] leading-[1.18] tracking-normal"
         >
-          Printing, Packaging<br/>and Label Solutions&hellip;
-          <em className="not-italic font-light italic block mt-3 text-[clamp(2.2rem,4.2vw,4.2rem)] leading-[1.05] text-[var(--sand-700)]">
+          <em className="italic block">Printing, Packaging<br/>and Label Solutions&hellip;</em>
+          <em className="not-italic font-light italic block mt-4 text-[clamp(2.2rem,4.2vw,4.2rem)] leading-[1.18] text-[var(--sand-700)]">
             Engineered for<br/>Performance.
           </em>
         </motion.h1>
@@ -272,50 +213,33 @@ export function PremiumHero() {
           className="mt-8 flex flex-wrap items-center gap-4"
         >
           {/* Primary – filled dark */}
-          <a
+          <motion.a
             href="mailto:abhinav@dgvcompany.com"
+            whileHover={{ scale: 1.035, y: -2 }}
+            whileTap={{ scale: 0.96, y: 0 }}
+            transition={{ type: "spring", stiffness: 420, damping: 15, mass: 0.5 }}
             className="cursor-pointer inline-flex items-center gap-2 bg-foreground text-[var(--sand-50)] px-7 py-3.5 text-[11px] uppercase tracking-[0.28em] hover:opacity-90 transition-opacity duration-300"
           >
             <span>Request a Quote</span>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3">
               <path d="M3 8h10M9 4l4 4-4 4"/>
             </svg>
-          </a>
+          </motion.a>
 
           {/* Secondary – ghost */}
-          <a
+          <motion.a
             href="#capabilities"
+            whileHover={{ scale: 1.035, y: -2 }}
+            whileTap={{ scale: 0.96, y: 0 }}
+            transition={{ type: "spring", stiffness: 420, damping: 15, mass: 0.5 }}
             className="cursor-pointer inline-flex items-center gap-3 border border-foreground/30 px-7 py-3.5 text-[11px] uppercase tracking-[0.28em] text-[var(--sand-700)] hover:border-foreground hover:text-foreground transition-colors duration-300"
           >
             Explore Products
-          </a>
+          </motion.a>
         </motion.div>
 
-        {/* Spacer — pushes industry icons to bottom */}
+        {/* Spacer — pushes content to bottom */}
         <div className="flex-1"/>
-
-        {/* Industry icons */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.42 }}
-          className="flex flex-wrap gap-x-5 gap-y-3"
-        >
-          {INDUSTRIES.map(({ label, Icon }) => (
-            <div key={label} className="flex items-center gap-2 group cursor-default">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--sand-700)] group-hover:text-foreground transition-colors duration-300"
-                style={{
-                  background: "oklch(0.97 0.008 80 / 0.7)",
-                  border: "1px solid oklch(0.86 0.028 75 / 0.55)",
-                }}
-              >
-                <Icon/>
-              </div>
-              <span className="text-[8.5px] uppercase tracking-[0.18em] text-[var(--sand-700)]">{label}</span>
-            </div>
-          ))}
-        </motion.div>
 
       </motion.div>
 
@@ -356,7 +280,7 @@ export function PremiumHero() {
                   <path d="M13 8 L17 5 L17 13 L13 16 Z"/>
                 </svg>
               }
-              value="0.3 Million+" label="Cartons / Month" delay={1.05}
+              value="3 Million+" label="Cartons / Month" delay={1.05}
             />
             <HeroStat
               icon={

@@ -184,7 +184,7 @@ function BackToTop() {
           transition={{ duration: 0.4, ease: LUXE }}
           onClick={scrollTop}
           aria-label="Back to top"
-          className="fixed bottom-24 right-5 z-40 flex items-center justify-center rounded-full border transition-colors duration-300"
+          className="fixed bottom-24 right-5 z-40 flex items-center justify-center rounded-full border transition-colors duration-300 before:absolute before:-inset-1 before:content-['']"
           style={{
             width: 40,
             height: 40,
@@ -222,7 +222,7 @@ function SocialLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex items-center justify-center rounded-full border transition-colors duration-300"
+      className="relative flex items-center justify-center rounded-full border transition-colors duration-300 before:absolute before:-inset-1.5 before:content-['']"
       style={{
         width: 36,
         height: 36,

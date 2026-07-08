@@ -463,7 +463,7 @@ export function EditorialCarousel({
               onClick={retreat}
               disabled={active === 0}
               aria-label="Previous"
-              className="h-9 w-9 flex items-center justify-center border border-[var(--sand-300)] text-[var(--sand-700)] hover:border-foreground hover:text-foreground disabled:opacity-30 disabled:hover:border-[var(--sand-300)] disabled:hover:text-[var(--sand-700)] transition-colors duration-300"
+              className="relative h-9 w-9 flex items-center justify-center border border-[var(--sand-300)] text-[var(--sand-700)] hover:border-foreground hover:text-foreground disabled:opacity-30 disabled:hover:border-[var(--sand-300)] disabled:hover:text-[var(--sand-700)] transition-colors duration-300 before:absolute before:-inset-[4px] before:content-['']"
             >
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
                 <path d="M13 5H1M4.5 1L1 5L4.5 9" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
@@ -473,7 +473,7 @@ export function EditorialCarousel({
               onClick={advance}
               disabled={active === items.length - 1}
               aria-label="Next"
-              className="h-9 w-9 flex items-center justify-center border border-[var(--sand-300)] text-[var(--sand-700)] hover:border-foreground hover:text-foreground disabled:opacity-30 disabled:hover:border-[var(--sand-300)] disabled:hover:text-[var(--sand-700)] transition-colors duration-300"
+              className="relative h-9 w-9 flex items-center justify-center border border-[var(--sand-300)] text-[var(--sand-700)] hover:border-foreground hover:text-foreground disabled:opacity-30 disabled:hover:border-[var(--sand-300)] disabled:hover:text-[var(--sand-700)] transition-colors duration-300 before:absolute before:-inset-[4px] before:content-['']"
             >
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
                 <path d="M1 5H13M9.5 1L13 5L9.5 9" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />

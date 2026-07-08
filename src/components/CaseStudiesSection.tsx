@@ -759,7 +759,7 @@ function CaseStudyModal({
           </div>
           <button
             onClick={onClose}
-            className="mt-0.5 ml-6 flex-shrink-0 flex h-9 w-9 items-center justify-center rounded-sm transition-opacity hover:opacity-70"
+            className="relative mt-0.5 ml-6 flex-shrink-0 flex h-9 w-9 items-center justify-center rounded-sm transition-opacity hover:opacity-70 before:absolute before:-inset-[4px] before:content-['']"
             style={{ border: `1px solid ${borderColor}`, color: textMuted }}
             aria-label="Close"
           >

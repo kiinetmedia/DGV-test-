@@ -408,7 +408,7 @@ export function CinematicCTA() {
 
           {/* CTA buttons */}
           <div className="cta-btns mt-14 flex flex-wrap items-center justify-center gap-6 md:gap-8">
-            <MagneticBtn href="mailto:abhinav@dgvcompany.com" />
+            <MagneticBtn href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com" />
             <SecondaryLink href="/products" />
           </div>
 

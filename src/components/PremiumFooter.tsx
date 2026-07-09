@@ -52,7 +52,7 @@ const NAV = [
       { label: "FAQs",       href: "/#faq" },
       { label: "Clientele", href: "/affiliations" },
       { label: "Contact",    href: "/#contact" },
-      { label: "Get Quote",  href: "mailto:abhinav@dgvcompany.com" },
+      { label: "Get Quote",  href: "mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com" },
     ],
   },
 ];
@@ -440,7 +440,7 @@ export function PremiumFooter() {
                 </a>
                 <span style={{ opacity: 0.3 }}>·</span>
                 <a
-                  href="mailto:abhinav@dgvcompany.com"
+                  href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
                   className="hover:opacity-100 transition-opacity duration-200"
                   style={{ opacity: 0.7 }}
                 >
@@ -466,7 +466,7 @@ export function PremiumFooter() {
                   </svg>
                 </SocialLink>
 
-                <SocialLink href="mailto:abhinav@dgvcompany.com" label="Email DGV Company">
+                <SocialLink href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com" label="Email DGV Company">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />

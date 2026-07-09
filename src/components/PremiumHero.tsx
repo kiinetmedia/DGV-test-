@@ -214,7 +214,7 @@ export function PremiumHero() {
         >
           {/* Primary – filled dark */}
           <motion.a
-            href="mailto:abhinav@dgvcompany.com"
+            href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
             whileHover={{ scale: 1.035, y: -2 }}
             whileTap={{ scale: 0.96, y: 0 }}
             transition={{ type: "spring", stiffness: 420, damping: 15, mass: 0.5 }}

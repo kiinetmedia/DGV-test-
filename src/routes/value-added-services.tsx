@@ -787,7 +787,7 @@ function VasPage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
               <a
-                href="mailto:abhinav@dgvcompany.com"
+                href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
                 className="magnetic-btn inline-flex items-center gap-3 border border-foreground px-8 py-4 text-[11px] uppercase tracking-[0.28em]"
               >
                 <span>Start a Conversation</span>

@@ -837,7 +837,7 @@ export function PremiumNav() {
           {/* CTA + hamburger */}
           <div className="flex items-center gap-5 shrink-0">
             <a
-              href="mailto:abhinav@dgvcompany.com"
+              href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
               onMouseEnter={closeNow}
               className="hidden lg:inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-foreground border border-foreground/65 px-5 py-[9px] hover:bg-foreground hover:text-[var(--sand-50)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
@@ -1022,7 +1022,7 @@ export function PremiumNav() {
                 ))}
 
                 <motion.a
-                  href="mailto:abhinav@dgvcompany.com"
+                  href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.22, duration: 0.38, ease: EASE }}

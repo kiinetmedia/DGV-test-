@@ -360,7 +360,7 @@ function ItemDetail({
       {/* CTA */}
       <div className="mt-8">
         <a
-          href="mailto:abhinav@dgvcompany.com"
+          href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
           className="magnetic-btn inline-flex items-center gap-3 border border-foreground px-7 py-3.5 text-[10px] uppercase tracking-[0.28em]"
         >
           <span>{config.ctaLabel} →</span>
@@ -630,7 +630,7 @@ function MobileFlatAtlas({
             )}
 
             <a
-              href="mailto:abhinav@dgvcompany.com"
+              href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
               className="magnetic-btn mt-7 inline-flex items-center gap-3 border border-foreground px-6 py-3.5 text-[10px] uppercase tracking-[0.26em]"
             >
               <span>Enquire →</span>

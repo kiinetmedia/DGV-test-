@@ -1182,7 +1182,7 @@ function CategoryExplorerView({
         </div>
         <div className="mt-10">
           <a
-            href="mailto:abhinav@dgvcompany.com"
+            href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
             onMouseEnter={() => setCtaHov(true)}
             onMouseLeave={() => setCtaHov(false)}
             className="relative inline-flex items-center gap-3 border border-foreground px-7 py-3.5 text-[10px] uppercase tracking-[0.28em] overflow-hidden focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground"
@@ -1398,7 +1398,7 @@ function ProductDetailView({
         <BuiltTogether pairings={subtype.pairings} />
 
         <div className="mt-8" data-section="enquire">
-          <a href="mailto:abhinav@dgvcompany.com" className="magnetic-btn inline-flex items-center gap-3 border border-foreground px-7 py-3.5 text-[10px] uppercase tracking-[0.28em]">
+          <a href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com" className="magnetic-btn inline-flex items-center gap-3 border border-foreground px-7 py-3.5 text-[10px] uppercase tracking-[0.28em]">
             <span>Enquire about {subtype.name} →</span>
           </a>
         </div>
@@ -2130,7 +2130,7 @@ function MobileAtlas({
             <p className="text-[8px] uppercase tracking-[0.28em] text-[var(--sand-400)] mb-3">Built Together</p>
             <BuiltTogether pairings={sub.pairings} />
             <a
-              href="mailto:abhinav@dgvcompany.com"
+              href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
               className="magnetic-btn mt-7 inline-flex items-center gap-3 border border-foreground px-6 py-3.5 text-[10px] uppercase tracking-[0.26em]"
             >
               <span>Enquire →</span>

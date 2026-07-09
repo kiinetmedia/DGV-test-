@@ -23,7 +23,7 @@ export const Route = createFileRoute("/affiliations")({
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const MAILTO_HREF = [
-  "mailto:abhinav@dgvcompany.com",
+  "mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com",
   "?subject=Request%20to%20View%20DGV%20Clientele%20Brochure",
   "&body=Hello%20DGV%20Company%2C%0A%0A",
   "I%20would%20like%20to%20request%20access%20to%20your%20clientele%20brochure.",

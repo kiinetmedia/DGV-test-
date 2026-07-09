@@ -721,7 +721,7 @@ function FAQ() {
             <p className="text-sm leading-relaxed" style={{ color: "var(--sand-700)" }}>
               Everything you need to know before getting started.{" "}
               <a
-                href="mailto:abhinav@dgvcompany.com"
+                href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
                 className="underline underline-offset-4 transition-colors duration-300"
                 style={{ color: "var(--sand-700)" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--foreground)")}

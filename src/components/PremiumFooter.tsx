@@ -94,23 +94,57 @@ function FooterColumn({
   links: { label: string; href: string }[];
   delay: number;
 }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-8%" }}
       transition={{ duration: 0.8, ease: LUXE, delay }}
+      className="border-b lg:border-b-0"
+      style={{ borderColor: DIVIDER }}
     >
-      <h3
-        className="mb-4 text-[10px] uppercase tracking-[0.28em] font-medium"
-        style={{ color: GOLD }}
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between gap-4 py-4 lg:pointer-events-none lg:cursor-default lg:py-0 lg:mb-4"
       >
-        {title}
-      </h3>
-      <div className="flex flex-col">
-        {links.map((l) => (
-          <FooterLink key={l.label} label={l.label} href={l.href} />
-        ))}
+        <span
+          className="text-[10px] uppercase tracking-[0.28em] font-medium"
+          style={{ color: GOLD }}
+        >
+          {title}
+        </span>
+        <motion.svg
+          className="lg:hidden shrink-0"
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.36, ease: LUXE }}
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          fill="none"
+          stroke={GOLD}
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M2 3.5L5 6.5L8 3.5" />
+        </motion.svg>
+      </button>
+
+      <div
+        className="grid transition-[grid-template-rows] duration-[400ms] ease-out lg:!grid-rows-[1fr]"
+        style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
+      >
+        <div className="overflow-hidden">
+          <div className="flex flex-col pb-4 lg:pb-0">
+            {links.map((l) => (
+              <FooterLink key={l.label} label={l.label} href={l.href} />
+            ))}
+          </div>
+        </div>
       </div>
     </motion.div>
   );
@@ -376,8 +410,8 @@ export function PremiumFooter() {
           </div>
 
           {/* ── 5-column nav grid ─────────────────────────────────────── */}
-          <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-12 md:py-16">
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+          <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-4 md:py-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-0 lg:gap-y-10">
               {NAV.map((col, i) => (
                 <FooterColumn
                   key={col.title}

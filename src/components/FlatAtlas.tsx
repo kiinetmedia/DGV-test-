@@ -1,5 +1,6 @@
 ﻿import { useState, useCallback, useEffect } from "react";
 import { useLocation } from "@tanstack/react-router";
+import { useMailtoHref } from "@/lib/contact";
 import {
   motion,
   AnimatePresence,
@@ -251,6 +252,7 @@ function ItemDetail({
   item: FlatAtlasItem;
   config: FlatAtlasConfig;
 }) {
+  const mailtoHref = useMailtoHref();
   return (
     <div className="flex flex-col px-8 md:px-12 py-10 md:py-14">
       {/* Eyebrow */}
@@ -360,7 +362,7 @@ function ItemDetail({
       {/* CTA */}
       <div className="mt-8">
         <a
-          href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+          href={mailtoHref}
           className="magnetic-btn inline-flex items-center gap-3 border border-foreground px-7 py-3.5 text-[10px] uppercase tracking-[0.28em]"
         >
           <span>{config.ctaLabel} →</span>
@@ -457,6 +459,7 @@ function ImagePanel({
               muted
               loop
               playsInline
+              preload="metadata"
               className="h-full w-full object-cover"
             />
           </motion.div>
@@ -529,6 +532,7 @@ function MobileFlatAtlas({
   externalIdx: number | null;
 }) {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const mailtoHref = useMailtoHref();
 
   useEffect(() => {
     if (externalIdx !== null) setActiveIdx(externalIdx);
@@ -630,7 +634,7 @@ function MobileFlatAtlas({
             )}
 
             <a
-              href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+              href={mailtoHref}
               className="magnetic-btn mt-7 inline-flex items-center gap-3 border border-foreground px-6 py-3.5 text-[10px] uppercase tracking-[0.26em]"
             >
               <span>Enquire →</span>

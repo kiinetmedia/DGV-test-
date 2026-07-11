@@ -1,7 +1,19 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { useMailtoHref } from "@/lib/contact";
 
-import heroPackage from "../assets/hero-image.png";
+import heroFallback from "../assets/hero-image.webp";
+import hero480Webp from "../assets/hero-image-480.webp";
+import hero480Avif from "../assets/hero-image-480.avif";
+import hero768Webp from "../assets/hero-image-768.webp";
+import hero768Avif from "../assets/hero-image-768.avif";
+import hero1024Webp from "../assets/hero-image-1024.webp";
+import hero1024Avif from "../assets/hero-image-1024.avif";
+import hero1400Webp from "../assets/hero-image-1400.webp";
+import hero1400Avif from "../assets/hero-image-1400.avif";
+
+const HERO_AVIF_SRCSET = `${hero480Avif} 480w, ${hero768Avif} 768w, ${hero1024Avif} 1024w, ${hero1400Avif} 1400w`;
+const HERO_WEBP_SRCSET = `${hero480Webp} 480w, ${hero768Webp} 768w, ${hero1024Webp} 1024w, ${hero1400Webp} 1400w`;
 
 /* ─── STAT CARDS ──────────────────────────────────────────────────────────── */
 
@@ -64,6 +76,7 @@ function HeroBackground() {
 const BG = "oklch(0.919 0.026 73)";
 
 export function PremiumHero() {
+  const mailtoHref = useMailtoHref();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
@@ -80,20 +93,27 @@ export function PremiumHero() {
       <HeroBackground/>
 
       {/* ── HERO IMAGE — true full-bleed so no panel edge is ever visible ──────── */}
+      {/* No entrance fade here: this is the LCP element, so it must paint immediately. */}
       <motion.div
         className="hidden md:block absolute inset-0 overflow-hidden"
         style={{ y: imgY, opacity: imgOpacity }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img
-          src={heroPackage}
-          alt=""
-          draggable={false}
-          className="w-full h-full object-cover"
-          style={{ objectPosition: '72% center' }}
-        />
+        <picture>
+          <source type="image/avif" srcSet={HERO_AVIF_SRCSET} sizes="100vw" />
+          <source type="image/webp" srcSet={HERO_WEBP_SRCSET} sizes="100vw" />
+          <img
+            src={heroFallback}
+            alt="Premium printing, packaging and rigid box products manufactured by DGV Company"
+            draggable={false}
+            className="w-full h-full object-cover"
+            style={{ objectPosition: '72% center' }}
+            width={1400}
+            height={933}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
       </motion.div>
 
       {/* ── GRADIENT OVERLAYS — no hard panel edge, all blending via gradients ── */}
@@ -180,11 +200,13 @@ export function PremiumHero() {
           </span>
         </motion.div>
 
-        {/* Main heading */}
+        {/* Main heading — this is the likely LCP candidate on mobile (image is hidden
+            below md breakpoint), so its entrance transition is kept short to avoid
+            delaying the measured LCP paint. */}
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="mt-7 font-display font-medium text-[clamp(2.8rem,5.4vw,5.4rem)] leading-[1.18] tracking-normal"
         >
           <em className="italic block">Printing, Packaging<br/>and Label Solutions&hellip;</em>
@@ -214,7 +236,7 @@ export function PremiumHero() {
         >
           {/* Primary – filled dark */}
           <motion.a
-            href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+            href={mailtoHref}
             whileHover={{ scale: 1.035, y: -2 }}
             whileTap={{ scale: 0.96, y: 0 }}
             transition={{ type: "spring", stiffness: 420, damping: 15, mass: 0.5 }}
@@ -245,13 +267,22 @@ export function PremiumHero() {
 
       {/* ── MOBILE: product image below text ────────────────────────────────── */}
       <div className="md:hidden px-6 pb-28 -mt-6">
-        <img
-          src={heroPackage}
-          alt="Premium packaging by DGV Company"
-          draggable={false}
-          className="w-full rounded-xl object-cover"
-          style={{ aspectRatio: '16/9' }}
-        />
+        <picture>
+          <source type="image/avif" srcSet={`${hero480Avif} 480w, ${hero768Avif} 768w`} sizes="100vw" />
+          <source type="image/webp" srcSet={`${hero480Webp} 480w, ${hero768Webp} 768w`} sizes="100vw" />
+          <img
+            src={hero768Webp}
+            alt="Premium packaging by DGV Company"
+            draggable={false}
+            className="w-full rounded-xl object-cover"
+            style={{ aspectRatio: '16/9' }}
+            width={768}
+            height={432}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
       </div>
 
       {/* ── STAT CARDS ───────────────────────────────────────────────────────── */}

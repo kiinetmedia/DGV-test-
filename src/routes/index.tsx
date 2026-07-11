@@ -1,25 +1,101 @@
 ﻿import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, lazy, Suspense } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, type MotionValue } from "motion/react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PremiumNav } from "@/components/PremiumNav";
-import { ProcessSection } from "@/components/ProcessSection";
-import { CaseStudiesSection } from "@/components/CaseStudiesSection";
-import { GlobalPresence } from "@/components/GlobalPresence";
 import { PremiumHero } from "@/components/PremiumHero";
 import { AboutUs } from "@/components/AboutUs";
-import { CinematicCTA } from "@/components/CinematicCTA";
 import { PremiumFooter } from "@/components/PremiumFooter";
+import { useMailtoHref } from "@/lib/contact";
+import hero480Avif from "@/assets/hero-image-480.avif";
+import hero768Avif from "@/assets/hero-image-768.avif";
+import hero1024Avif from "@/assets/hero-image-1024.avif";
+import hero1400Avif from "@/assets/hero-image-1400.avif";
+
+// Below-the-fold sections are code-split out of the initial homepage bundle.
+// React.lazy() alone only splits the *chunk* — the import() still fires as
+// soon as the tree renders, so without gating it these would start
+// downloading/executing right after the critical path, competing with LCP
+// for CPU/network under throttling. DeferredSection below gates the actual
+// mount (and therefore the import()) behind an IntersectionObserver so the
+// work genuinely happens only when the user is about to scroll there.
+const GlobalPresence = lazy(() =>
+  import("@/components/GlobalPresence").then((m) => ({ default: m.GlobalPresence }))
+);
+const ProcessSection = lazy(() =>
+  import("@/components/ProcessSection").then((m) => ({ default: m.ProcessSection }))
+);
+const CaseStudiesSection = lazy(() =>
+  import("@/components/CaseStudiesSection").then((m) => ({ default: m.CaseStudiesSection }))
+);
+const CinematicCTA = lazy(() =>
+  import("@/components/CinematicCTA").then((m) => ({ default: m.CinematicCTA }))
+);
+// PremiumFooter is kept eager (not deferred): it carries the site's internal
+// link structure (nav to every route), which should stay server-rendered
+// and immediately crawlable rather than gated behind client-side IO.
+
+function SectionFallback({ minHeight = 400 }: { minHeight?: number }) {
+  return <div style={{ minHeight }} aria-hidden />;
+}
+
+function DeferredSection({
+  minHeight,
+  children,
+}: {
+  minHeight: number;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref}>
+      {visible ? (
+        <Suspense fallback={<SectionFallback minHeight={minHeight} />}>{children}</Suspense>
+      ) : (
+        <SectionFallback minHeight={minHeight} />
+      )}
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DGV Company — Print & Packaging Solutions" },
-      { name: "description", content: "DGV Company delivers premium print and packaging solutions — labels, packaging, stationery and branding — with consistent quality and reliable timelines." },
-      { property: "og:title", content: "DGV Company — Print & Packaging Solutions" },
-      { property: "og:description", content: "DGV Company delivers print and packaging solutions designed for consistency, durability, and large-scale performance." },
+      { title: "DGV Company — Printing, Packaging & Rigid Boxes Manufacturer" },
+      { name: "description", content: "DGV Company delivers premium printing, packaging and rigid box solutions — labels, corrugated packaging and branding — consistent quality, reliable timelines." },
+      { property: "og:title", content: "DGV Company — Printing, Packaging & Rigid Boxes Manufacturer" },
+      { property: "og:description", content: "DGV Company delivers premium printing, packaging and rigid box solutions designed for consistency, durability, and large-scale performance." },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.dgvcompany.com/" },
+      {
+        rel: "preload",
+        as: "image",
+        type: "image/avif",
+        imagesrcset: `${hero480Avif} 480w, ${hero768Avif} 768w, ${hero1024Avif} 1024w, ${hero1400Avif} 1400w`,
+        imagesizes: "100vw",
+        fetchpriority: "high",
+      },
     ],
   }),
   component: Index,
@@ -70,13 +146,21 @@ function Index() {
       <PremiumNav />
       <PremiumHero />
       <AboutUs />
-      <GlobalPresence />
+      <DeferredSection minHeight={520}>
+        <GlobalPresence />
+      </DeferredSection>
       <Products />
       <Solutions />
-      <ProcessSection />
-      <CaseStudiesSection />
+      <DeferredSection minHeight={480}>
+        <ProcessSection />
+      </DeferredSection>
+      <DeferredSection minHeight={480}>
+        <CaseStudiesSection />
+      </DeferredSection>
       <FAQ />
-      <CinematicCTA />
+      <DeferredSection minHeight={420}>
+        <CinematicCTA />
+      </DeferredSection>
       <PremiumFooter />
     </main>
   );
@@ -689,6 +773,7 @@ const FAQ_ITEMS: { q: string; a: string; list?: string[]; cat: FAQCat }[] = [
 ];
 
 function FAQ() {
+  const mailtoHref = useMailtoHref();
   const [openIdx, setOpenIdx]   = useState<number | null>(null);
   const [activeCat, setActiveCat] = useState<"all" | FAQCat>("all");
   const ref = useRef<HTMLElement>(null);
@@ -721,7 +806,7 @@ function FAQ() {
             <p className="text-sm leading-relaxed" style={{ color: "var(--sand-700)" }}>
               Everything you need to know before getting started.{" "}
               <a
-                href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+                href={mailtoHref}
                 className="underline underline-offset-4 transition-colors duration-300"
                 style={{ color: "var(--sand-700)" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--foreground)")}

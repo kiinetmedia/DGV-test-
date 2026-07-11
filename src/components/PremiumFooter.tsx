@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
+import { useMailtoHref, useContactEmail } from "@/lib/contact";
 
 const LUXE = [0.16, 1, 0.3, 1] as const;
 
@@ -64,10 +65,11 @@ const TAPE = "PACKAGING  ·  PRINT  ·  LABELS  ·  DGV COMPANY  ·  SINCE 2006 
 function FooterLink({ label, href }: { label: string; href: string }) {
   const [hov, setHov] = useState(false);
   const isExternal = href.startsWith("mailto:");
+  const mailtoHref = useMailtoHref();
 
   return (
     <a
-      href={href}
+      href={isExternal ? mailtoHref : href}
       {...(isExternal ? {} : {})}
       className="group relative flex items-center py-[10px] text-[12px] leading-none tracking-wide"
       style={{ color: hov ? IVORY : IVORY_DIM }}
@@ -339,6 +341,9 @@ function Watermarks() {
 /* ─── Main export ─────────────────────────────────────────────────────────── */
 
 export function PremiumFooter() {
+  const mailtoHref = useMailtoHref();
+  const contactEmail = useContactEmail();
+
   return (
     <>
       <BackToTop />
@@ -474,11 +479,11 @@ export function PremiumFooter() {
                 </a>
                 <span style={{ opacity: 0.3 }}>·</span>
                 <a
-                  href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+                  href={mailtoHref}
                   className="hover:opacity-100 transition-opacity duration-200"
                   style={{ opacity: 0.7 }}
                 >
-                  abhinav@dgvcompany.com
+                  {contactEmail || "Email us"}
                 </a>
                 <span style={{ opacity: 0.3 }}>·</span>
                 <span style={{ opacity: 0.7 }}>Mumbai, India</span>
@@ -500,7 +505,7 @@ export function PremiumFooter() {
                   </svg>
                 </SocialLink>
 
-                <SocialLink href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com" label="Email DGV Company">
+                <SocialLink href={mailtoHref} label="Email DGV Company">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />

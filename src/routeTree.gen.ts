@@ -66,18 +66,10 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/affiliations'
-    | '/products'
-    | '/solutions'
-    | '/value-added-services'
+    '/' | '/affiliations' | '/products' | '/solutions' | '/value-added-services'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/affiliations'
-    | '/products'
-    | '/solutions'
-    | '/value-added-services'
+    '/' | '/affiliations' | '/products' | '/solutions' | '/value-added-services'
   id:
     | '__root__'
     | '/'

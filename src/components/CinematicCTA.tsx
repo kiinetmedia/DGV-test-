@@ -7,6 +7,7 @@ import {
 } from "motion/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useMailtoHref, useContactEmail } from "@/lib/contact";
 
 const LUXE = [0.16, 1, 0.3, 1] as const;
 
@@ -234,6 +235,8 @@ function DecoLayer() {
 export function CinematicCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const mailtoHref = useMailtoHref();
+  const contactEmail = useContactEmail();
 
   /* ── GSAP scroll sequence — desktop only ────────────────────────────── */
   useEffect(() => {
@@ -408,7 +411,7 @@ export function CinematicCTA() {
 
           {/* CTA buttons */}
           <div className="cta-btns mt-14 flex flex-wrap items-center justify-center gap-6 md:gap-8">
-            <MagneticBtn href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com" />
+            <MagneticBtn href={mailtoHref} />
             <SecondaryLink href="/products" />
           </div>
 
@@ -417,7 +420,7 @@ export function CinematicCTA() {
             <MetaBlock label="Location" value="Mumbai, India" />
             <MetaBlock label="Contact" value="Mr. Abhinav Savla" />
             <MetaBlock label="Phone" value="+91 98207 91155" />
-            <MetaBlock label="Email" value="abhinav@dgvcompany.com" />
+            <MetaBlock label="Email" value={contactEmail || "Email us"} />
           </div>
         </div>
       </div>

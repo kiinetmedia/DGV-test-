@@ -2,9 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { PremiumNav } from "@/components/PremiumNav";
 import { PremiumFooter } from "@/components/PremiumFooter";
+import { useMailtoHref } from "@/lib/contact";
 
 const logoImports = import.meta.glob(
-  "/src/assets/clientele/strip/*.jpeg",
+  "/src/assets/clientele/strip/*.webp",
   { eager: true, query: "?url", import: "default" }
 ) as Record<string, string>;
 
@@ -13,22 +14,22 @@ const LOGOS: string[] = Object.keys(logoImports).sort().map((k) => logoImports[k
 export const Route = createFileRoute("/affiliations")({
   head: () => ({
     meta: [
-      { title: "Clientele — DGV Company" },
+      { title: "DGV Company Clientele — Printing & Packaging Partners" },
       { name: "description", content: "DGV Company's clientele spans pharmaceuticals, FMCG, luxury, manufacturing, corporate and more — trusted by leading brands across India." },
     ],
+    links: [{ rel: "canonical", href: "https://www.dgvcompany.com/affiliations" }],
   }),
   component: ClientelePage,
 });
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-const MAILTO_HREF = [
-  "mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com",
-  "?subject=Request%20to%20View%20DGV%20Clientele%20Brochure",
-  "&body=Hello%20DGV%20Company%2C%0A%0A",
-  "I%20would%20like%20to%20request%20access%20to%20your%20clientele%20brochure.",
-  "%0A%0APlease%20share%20the%20brochure%20at%20your%20earliest%20convenience.",
-  "%0A%0AThank%20you.",
+const MAILTO_SUBJECT = "Request to View DGV Clientele Brochure";
+const MAILTO_BODY = [
+  "Hello DGV Company,\n\n",
+  "I would like to request access to your clientele brochure.",
+  "\n\nPlease share the brochure at your earliest convenience.",
+  "\n\nThank you.",
 ].join("");
 
 const INDUSTRIES = [
@@ -91,6 +92,7 @@ function IconMail() {
 }
 
 function ClientelePage() {
+  const mailtoHref = useMailtoHref({ subject: MAILTO_SUBJECT, body: MAILTO_BODY });
   return (
     <main className="relative bg-background text-foreground overflow-x-clip min-h-screen">
       <div className="pointer-events-none fixed inset-0 bg-grid-fine grid-fade opacity-60" aria-hidden />
@@ -251,7 +253,7 @@ function ClientelePage() {
                 <div className="mt-8 border-t border-[var(--sand-300)] pt-8 space-y-3">
                   {/* Primary CTA */}
                   <a
-                    href={MAILTO_HREF}
+                    href={mailtoHref}
                     className="flex items-center justify-between gap-3 w-full bg-foreground text-[var(--sand-50)] px-6 py-4 text-[11px] uppercase tracking-[0.28em] hover:opacity-90 transition-opacity duration-300 rounded-xl"
                   >
                     <span className="flex items-center gap-3">

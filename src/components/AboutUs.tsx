@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import aboutImage from "@/assets/about-us.png";
+import aboutImage from "@/assets/about-us.webp";
 
 const STATS = [
   { value: "25+",  label: "Years of Excellence" },

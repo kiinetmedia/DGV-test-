@@ -4,15 +4,16 @@ import { motion, AnimatePresence } from "motion/react";
 import { PremiumNav } from "@/components/PremiumNav";
 import { PremiumFooter } from "@/components/PremiumFooter";
 import { FlatAtlas, type FlatAtlasItem, type FlatAtlasConfig } from "@/components/FlatAtlas";
-import vasLabelDesign from "@/assets/vas/label-design.png";
-import vasPackagingDev from "@/assets/vas/packaging-development.png";
-import vasPrototypeSampling from "@/assets/vas/prototype-sampling.png";
-import vasBulkManufacturing from "@/assets/vas/bulk-manufacturing.png";
-import vasInventoryManagement from "@/assets/vas/inventory-management.png";
-import vasLogistics from "@/assets/vas/logistics.png";
-import vasVisualisation from "@/assets/vas/visualisation.png";
-import vasDesigning from "@/assets/vas/designing.png";
-import vasArtworkArchiving from "@/assets/vas/artwork-archiving.png";
+import { useMailtoHref } from "@/lib/contact";
+import vasLabelDesign from "@/assets/vas/label-design.webp";
+import vasPackagingDev from "@/assets/vas/packaging-development.webp";
+import vasPrototypeSampling from "@/assets/vas/prototype-sampling.webp";
+import vasBulkManufacturing from "@/assets/vas/bulk-manufacturing.webp";
+import vasInventoryManagement from "@/assets/vas/inventory-management.webp";
+import vasLogistics from "@/assets/vas/logistics.webp";
+import vasVisualisation from "@/assets/vas/visualisation.webp";
+import vasDesigning from "@/assets/vas/designing.webp";
+import vasArtworkArchiving from "@/assets/vas/artwork-archiving.webp";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -517,6 +518,7 @@ export const Route = createFileRoute("/value-added-services")({
         content: "Services beyond the press. One complete partnership.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.dgvcompany.com/value-added-services" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -735,6 +737,7 @@ const GENERAL_FAQS: Faq[] = [
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function VasPage() {
+  const mailtoHref = useMailtoHref();
   return (
     <main className="relative bg-background text-foreground overflow-x-clip min-h-screen">
       <div
@@ -787,7 +790,7 @@ function VasPage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
               <a
-                href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+                href={mailtoHref}
                 className="magnetic-btn inline-flex items-center gap-3 border border-foreground px-8 py-4 text-[11px] uppercase tracking-[0.28em]"
               >
                 <span>Start a Conversation</span>

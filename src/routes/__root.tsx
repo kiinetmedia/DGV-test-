@@ -10,10 +10,33 @@ import {
 } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
+import interFontUrl from "../assets/fonts/inter-400.woff2?url";
+import displayFontUrl from "../assets/fonts/cormorant-garamond-500.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { StickyCta } from "../components/StickyCta";
+
+const ORGANIZATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "DGV Company",
+  url: "https://www.dgvcompany.com/",
+  telephone: "+91-98207-91155",
+  description:
+    "DGV Company delivers premium printing, packaging and rigid box solutions — labels, corrugated packaging and branding — with consistent quality and reliable timelines.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Mumbai",
+    addressRegion: "Maharashtra",
+    addressCountry: "IN",
+  },
+  sameAs: [
+    "https://www.linkedin.com/company/dgv-company/",
+    "https://www.instagram.com/dgvcompany/",
+  ],
+};
 
 function NotFoundComponent() {
   return (
@@ -80,30 +103,46 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "DGV Company — Print & Packaging Solutions" },
-      { name: "description", content: "DGV Company delivers print and packaging solutions — labels, packaging, stationery and branding — with consistent quality and reliable timelines. Located in Mumbai, India." },
+      { title: "DGV Company — Printing, Packaging & Rigid Boxes Manufacturer" },
+      { name: "description", content: "DGV Company delivers premium printing, packaging and rigid box solutions — labels, corrugated packaging and branding — consistent quality, reliable timelines." },
       { name: "author", content: "DGV Company" },
-      { property: "og:title", content: "DGV Company — Print & Packaging Solutions" },
-      { property: "og:description", content: "DGV Company delivers print and packaging solutions designed for consistency, durability, and large-scale performance." },
+      { property: "og:title", content: "DGV Company — Printing, Packaging & Rigid Boxes Manufacturer" },
+      { property: "og:description", content: "DGV Company delivers premium printing, packaging and rigid box solutions designed for consistency, durability, and large-scale performance." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@DGVCompany" },
-      { name: "twitter:title", content: "DGV Company — Print & Packaging Solutions" },
-      { name: "twitter:description", content: "DGV Company delivers print and packaging solutions designed for consistency, durability, and large-scale performance." },
+      { name: "twitter:title", content: "DGV Company — Printing, Packaging & Rigid Boxes Manufacturer" },
+      { name: "twitter:description", content: "DGV Company delivers premium printing, packaging and rigid box solutions designed for consistency, durability, and large-scale performance." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1905d044-299b-45a7-9294-41af8c2a6ca0/id-preview-0de01899--92b64eef-7215-4ecb-87b0-6275254edc53.lovable.app-1780932573195.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1905d044-299b-45a7-9294-41af8c2a6ca0/id-preview-0de01899--92b64eef-7215-4ecb-87b0-6275254edc53.lovable.app-1780932573195.png" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      // Self-hosted (see src/fonts.css) — preload the two above-the-fold critical
+      // weights so text doesn't wait on CSS parsing to start the font fetch.
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap",
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: interFontUrl,
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: displayFontUrl,
+        crossOrigin: "anonymous",
       },
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(ORGANIZATION_SCHEMA),
       },
     ],
   }),
@@ -147,6 +186,7 @@ function RootComponent() {
         </motion.div>
       </AnimatePresence>
       <StickyCta />
+      <Analytics />
     </QueryClientProvider>
   );
 }

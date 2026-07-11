@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "motion/react";
 import { PremiumNav } from "@/components/PremiumNav";
 import { PremiumFooter } from "@/components/PremiumFooter";
 import { FlatAtlas, type FlatAtlasItem, type FlatAtlasConfig } from "@/components/FlatAtlas";
-import heroPackage from "@/assets/hero-package.jpg";
-import materialsImg from "@/assets/materials.jpg";
-import craftImg from "@/assets/craft.jpg";
-import productStoryImg from "@/assets/product-story.jpg";
+import heroPackage from "@/assets/hero-package.webp";
+import materialsImg from "@/assets/materials.webp";
+import craftImg from "@/assets/craft.webp";
+import productStoryImg from "@/assets/product-story.webp";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const IMAGES = [heroPackage, materialsImg, craftImg, productStoryImg];
@@ -490,6 +490,7 @@ export const Route = createFileRoute("/solutions")({
         content: "Eight printing processes. The right one, every time.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://www.dgvcompany.com/solutions" }],
     scripts: [
       {
         type: "application/ld+json",

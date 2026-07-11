@@ -1,5 +1,6 @@
 ﻿import { useState, useCallback, useEffect, useRef, createContext, useContext } from "react";
 import { useLocation } from "@tanstack/react-router";
+import { useMailtoHref } from "@/lib/contact";
 import {
   motion,
   AnimatePresence,
@@ -10,58 +11,58 @@ import {
   type MotionValue,
 } from "motion/react";
 // Rigid Boxes
-import rigidMagneticClosure from "@/assets/products/rigid-magnetic-closure.jpeg";
-import rigidDrawerBoxes from "@/assets/products/rigid-drawer-boxes.jpeg";
-import rigidLidBase from "@/assets/products/rigid-lid-base.jpeg";
-import rigidFoldable from "@/assets/products/rigid-foldable.jpeg";
-import rigidJewellery from "@/assets/products/rigid-jewellery.jpeg";
-import rigidCosmetic from "@/assets/products/rigid-cosmetic.jpeg";
-import rigidCorporateGift from "@/assets/products/rigid-corporate-gift.jpeg";
+import rigidMagneticClosure from "@/assets/products/rigid-magnetic-closure.webp";
+import rigidDrawerBoxes from "@/assets/products/rigid-drawer-boxes.webp";
+import rigidLidBase from "@/assets/products/rigid-lid-base.webp";
+import rigidFoldable from "@/assets/products/rigid-foldable.webp";
+import rigidJewellery from "@/assets/products/rigid-jewellery.webp";
+import rigidCosmetic from "@/assets/products/rigid-cosmetic.webp";
+import rigidCorporateGift from "@/assets/products/rigid-corporate-gift.webp";
 
 // Paper Bags
-import bagsKraft from "@/assets/products/bags-kraft.png";
-import bagsLaminated from "@/assets/products/bags-laminated.png";
-import bagsLuxury from "@/assets/products/bags-luxury.png";
-import bagsRetailCarry from "@/assets/products/bags-retail-carry.png";
-import bagsCustomPrinted from "@/assets/products/bags-custom-printed.png";
+import bagsKraft from "@/assets/products/bags-kraft.webp";
+import bagsLaminated from "@/assets/products/bags-laminated.webp";
+import bagsLuxury from "@/assets/products/bags-luxury.webp";
+import bagsRetailCarry from "@/assets/products/bags-retail-carry.webp";
+import bagsCustomPrinted from "@/assets/products/bags-custom-printed.webp";
 
 // Commercial Printing
-import printBrochure from "@/assets/products/print-brochure.png";
-import printCatalogue from "@/assets/products/print-catalogue.png";
-import printFlyers from "@/assets/products/print-flyers.png";
-import printLetterhead from "@/assets/products/print-letterhead.png";
-import printNotebooks from "@/assets/products/print-notebooks.png";
-import printCorporateStationery from "@/assets/products/print-corporate-stationery.png";
+import printBrochure from "@/assets/products/print-brochure.webp";
+import printCatalogue from "@/assets/products/print-catalogue.webp";
+import printFlyers from "@/assets/products/print-flyers.webp";
+import printLetterhead from "@/assets/products/print-letterhead.webp";
+import printNotebooks from "@/assets/products/print-notebooks.webp";
+import printCorporateStationery from "@/assets/products/print-corporate-stationery.webp";
 
 // Barcode Labels
-import labelProductBarcode from "@/assets/products/label-product-barcode.png";
-import labelPharmaceutical from "@/assets/products/label-pharmaceutical.png";
-import labelCosmetic from "@/assets/products/label-cosmetic.png";
-import labelFmcgFood from "@/assets/products/label-fmcg-food.png";
-import labelChemicalIndustrial from "@/assets/products/label-chemical-industrial.png";
-import labelVinylTransparent from "@/assets/products/label-vinyl-transparent.png";
-import labelTamperEvident from "@/assets/products/label-tamper-evident.png";
+import labelProductBarcode from "@/assets/products/label-product-barcode.webp";
+import labelPharmaceutical from "@/assets/products/label-pharmaceutical.webp";
+import labelCosmetic from "@/assets/products/label-cosmetic.webp";
+import labelFmcgFood from "@/assets/products/label-fmcg-food.webp";
+import labelChemicalIndustrial from "@/assets/products/label-chemical-industrial.webp";
+import labelVinylTransparent from "@/assets/products/label-vinyl-transparent.webp";
+import labelTamperEvident from "@/assets/products/label-tamper-evident.webp";
 
 // Calendars & Diaries
-import calWall from "@/assets/products/cal-wall.jpeg";
-import calDesk from "@/assets/products/cal-desk.jpeg";
-import calCorporateDiaries from "@/assets/products/cal-corporate-diaries.jpeg";
-import calExecutiveDiaries from "@/assets/products/cal-executive-diaries.jpeg";
-import calCustomDiaries from "@/assets/products/cal-custom-diaries.jpeg";
+import calWall from "@/assets/products/cal-wall.webp";
+import calDesk from "@/assets/products/cal-desk.webp";
+import calCorporateDiaries from "@/assets/products/cal-corporate-diaries.webp";
+import calExecutiveDiaries from "@/assets/products/cal-executive-diaries.webp";
+import calCustomDiaries from "@/assets/products/cal-custom-diaries.webp";
 
 // Marketing & Branding
-import mktProductCatalogues from "@/assets/products/mkt-product-catalogues.jpeg";
-import mktAnnualReports from "@/assets/products/mkt-annual-reports.jpeg";
-import mktCorporateFiles from "@/assets/products/mkt-corporate-files.jpeg";
-import mktDanglersWobblers from "@/assets/products/mkt-danglers-wobblers.jpeg";
-import mktExhibitionMaterials from "@/assets/products/mkt-exhibition-materials.jpeg";
+import mktProductCatalogues from "@/assets/products/mkt-product-catalogues.webp";
+import mktAnnualReports from "@/assets/products/mkt-annual-reports.webp";
+import mktCorporateFiles from "@/assets/products/mkt-corporate-files.webp";
+import mktDanglersWobblers from "@/assets/products/mkt-danglers-wobblers.webp";
+import mktExhibitionMaterials from "@/assets/products/mkt-exhibition-materials.webp";
 
 // Corrugated Boxes
-import corrEcommerce from "@/assets/products/corr-ecommerce.png";
-import corrStandard from "@/assets/products/corr-standard.png";
-import corrHeavyDuty from "@/assets/products/corr-heavy-duty.png";
-import corrCustomPrinted from "@/assets/products/corr-custom-printed.png";
-import corrDieCut from "@/assets/products/corr-die-cut.png";
+import corrEcommerce from "@/assets/products/corr-ecommerce.webp";
+import corrStandard from "@/assets/products/corr-standard.webp";
+import corrHeavyDuty from "@/assets/products/corr-heavy-duty.webp";
+import corrCustomPrinted from "@/assets/products/corr-custom-printed.webp";
+import corrDieCut from "@/assets/products/corr-die-cut.webp";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -1119,6 +1120,7 @@ function CategoryExplorerView({
   onSelectSubtype: (i: number) => void;
 }) {
   const [ctaHov, setCtaHov] = useState(false);
+  const mailtoHref = useMailtoHref();
   const ct = ctaHov ? DISC_IN : DISC_OUT;
 
   const mouse = useContext(MouseCtx);
@@ -1182,7 +1184,7 @@ function CategoryExplorerView({
         </div>
         <div className="mt-10">
           <a
-            href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+            href={mailtoHref}
             onMouseEnter={() => setCtaHov(true)}
             onMouseLeave={() => setCtaHov(false)}
             className="relative inline-flex items-center gap-3 border border-foreground px-7 py-3.5 text-[10px] uppercase tracking-[0.28em] overflow-hidden focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground"
@@ -1288,6 +1290,7 @@ function ProductDetailView({
   onNavigate: (j: number) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const mailtoHref = useMailtoHref();
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -1398,7 +1401,7 @@ function ProductDetailView({
         <BuiltTogether pairings={subtype.pairings} />
 
         <div className="mt-8" data-section="enquire">
-          <a href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com" className="magnetic-btn inline-flex items-center gap-3 border border-foreground px-7 py-3.5 text-[10px] uppercase tracking-[0.28em]">
+          <a href={mailtoHref} className="magnetic-btn inline-flex items-center gap-3 border border-foreground px-7 py-3.5 text-[10px] uppercase tracking-[0.28em]">
             <span>Enquire about {subtype.name} →</span>
           </a>
         </div>
@@ -2011,6 +2014,7 @@ function MobileAtlas({
 }) {
   const [activeCat, setActiveCat] = useState<number | null>(null);
   const [activeSub, setActiveSub] = useState<number | null>(null);
+  const mailtoHref = useMailtoHref();
 
   useEffect(() => {
     if (externalCat !== null) {
@@ -2130,7 +2134,7 @@ function MobileAtlas({
             <p className="text-[8px] uppercase tracking-[0.28em] text-[var(--sand-400)] mb-3">Built Together</p>
             <BuiltTogether pairings={sub.pairings} />
             <a
-              href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+              href={mailtoHref}
               className="magnetic-btn mt-7 inline-flex items-center gap-3 border border-foreground px-6 py-3.5 text-[10px] uppercase tracking-[0.26em]"
             >
               <span>Enquire →</span>

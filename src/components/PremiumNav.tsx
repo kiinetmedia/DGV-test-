@@ -9,7 +9,8 @@ import {
   useMotionTemplate,
 } from "motion/react";
 
-import dgvLogo from "../assets/dgv-logo-full.png";
+import dgvLogo from "../assets/dgv-logo-full.webp";
+import { useMailtoHref } from "@/lib/contact";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const EASE_SOFT: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -573,6 +574,7 @@ function NavLink({
 /* ══ Main exported component ════════════════════════════════════════════════ */
 
 export function PremiumNav() {
+  const mailtoHref = useMailtoHref();
   const [activeDropdown, setActiveDropdown] = useState<ActiveDropdown>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
@@ -595,19 +597,38 @@ export function PremiumNav() {
   const [pendingDropdown, setPendingDropdown] = useState<ActiveDropdown>(null);
   const prefersReducedMotion = useReducedMotion();
 
-  /* ── Measure pill height → set --nav-h CSS variable ──────────────────── */
+  /* ── Measure pill height → set --nav-h CSS variable ──────────────────────
+     The pill's own width/padding are continuously spring-animated on scroll
+     (see sWidth/sPadding below), so a naive ResizeObserver on that same
+     element fires on every animation frame and forces a synchronous layout
+     read (getBoundingClientRect) right after a style/size change — a classic
+     forced-reflow loop. Coalesce callbacks to one measurement per animation
+     frame and skip the style write entirely when the rounded value hasn't
+     changed, so the vast majority of scroll-driven resize events cost nothing. */
   useEffect(() => {
     const el = pillRef.current;
     if (!el) return;
-    const update = () => {
+    let rafId: number | null = null;
+    let lastPx = -1;
+    const measure = () => {
+      rafId = null;
       const rect = el.getBoundingClientRect();
-      // bottom of pill = height of nav from top of viewport
-      document.documentElement.style.setProperty("--nav-h", `${Math.ceil(rect.bottom) + 2}px`);
+      const px = Math.ceil(rect.bottom) + 2;
+      if (px === lastPx) return;
+      lastPx = px;
+      document.documentElement.style.setProperty("--nav-h", `${px}px`);
+    };
+    const update = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(measure);
     };
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
-    return () => ro.disconnect();
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      ro.disconnect();
+    };
   }, []);
 
   /* ── Scroll-driven pill animation ────────────────────────────────────── */
@@ -837,7 +858,7 @@ export function PremiumNav() {
           {/* CTA + hamburger */}
           <div className="flex items-center gap-5 shrink-0">
             <a
-              href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+              href={mailtoHref}
               onMouseEnter={closeNow}
               className="hidden lg:inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-foreground border border-foreground/65 px-5 py-[9px] hover:bg-foreground hover:text-[var(--sand-50)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
@@ -1022,7 +1043,7 @@ export function PremiumNav() {
                 ))}
 
                 <motion.a
-                  href="mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com"
+                  href={mailtoHref}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.22, duration: 0.38, ease: EASE }}

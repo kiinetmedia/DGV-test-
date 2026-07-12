@@ -874,7 +874,7 @@ export function PremiumNav() {
               onLeave={scheduleClose}
               href="/value-added-services"
             />
-            <NavLink href="/affiliations" onMouseEnter={closeNow} className="hidden lg:block">Clientele</NavLink>
+            <NavLink href="/clientele" onMouseEnter={closeNow} className="hidden lg:block">Clientele</NavLink>
             <NavLink href="/#contact" onMouseEnter={closeNow}>Contact</NavLink>
           </nav>
 
@@ -1043,7 +1043,7 @@ export function PremiumNav() {
                 </MobileAccordion>
 
                 {[
-                  { label: "Clientele", href: "/affiliations" },
+                  { label: "Clientele", href: "/clientele" },
                   { label: "Contact",      href: "/#contact" },
                 ].map(({ label, href }, i) => (
                   <motion.a

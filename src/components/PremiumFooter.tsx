@@ -53,7 +53,7 @@ const NAV = [
     links: [
       { label: "Catalogue",  href: "/products" },
       { label: "FAQs",       href: "/#faq" },
-      { label: "Clientele", href: "/affiliations" },
+      { label: "Clientele", href: "/clientele" },
       { label: "Contact",    href: "/#contact" },
       { label: "Get Quote",  href: "mailto:abhinav@dgvcompany.com,dgvcompany1@gmail.com" },
     ],

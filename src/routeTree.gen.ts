@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ValueAddedServicesRouteImport } from './routes/value-added-services'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ProductsRouteImport } from './routes/products'
-import { Route as AffiliationsRouteImport } from './routes/affiliations'
+import { Route as ClienteleRouteImport } from './routes/clientele'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ValueAddedServicesRoute = ValueAddedServicesRouteImport.update({
@@ -30,9 +30,9 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AffiliationsRoute = AffiliationsRouteImport.update({
-  id: '/affiliations',
-  path: '/affiliations',
+const ClienteleRoute = ClienteleRouteImport.update({
+  id: '/clientele',
+  path: '/clientele',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,14 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/affiliations': typeof AffiliationsRoute
+  '/clientele': typeof ClienteleRoute
   '/products': typeof ProductsRoute
   '/solutions': typeof SolutionsRoute
   '/value-added-services': typeof ValueAddedServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/affiliations': typeof AffiliationsRoute
+  '/clientele': typeof ClienteleRoute
   '/products': typeof ProductsRoute
   '/solutions': typeof SolutionsRoute
   '/value-added-services': typeof ValueAddedServicesRoute
@@ -58,7 +58,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/affiliations': typeof AffiliationsRoute
+  '/clientele': typeof ClienteleRoute
   '/products': typeof ProductsRoute
   '/solutions': typeof SolutionsRoute
   '/value-added-services': typeof ValueAddedServicesRoute
@@ -66,14 +66,13 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/affiliations' | '/products' | '/solutions' | '/value-added-services'
+    '/' | '/clientele' | '/products' | '/solutions' | '/value-added-services'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    '/' | '/affiliations' | '/products' | '/solutions' | '/value-added-services'
+  to: '/' | '/clientele' | '/products' | '/solutions' | '/value-added-services'
   id:
     | '__root__'
     | '/'
-    | '/affiliations'
+    | '/clientele'
     | '/products'
     | '/solutions'
     | '/value-added-services'
@@ -81,7 +80,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AffiliationsRoute: typeof AffiliationsRoute
+  ClienteleRoute: typeof ClienteleRoute
   ProductsRoute: typeof ProductsRoute
   SolutionsRoute: typeof SolutionsRoute
   ValueAddedServicesRoute: typeof ValueAddedServicesRoute
@@ -110,11 +109,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/affiliations': {
-      id: '/affiliations'
-      path: '/affiliations'
-      fullPath: '/affiliations'
-      preLoaderRoute: typeof AffiliationsRouteImport
+    '/clientele': {
+      id: '/clientele'
+      path: '/clientele'
+      fullPath: '/clientele'
+      preLoaderRoute: typeof ClienteleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -129,7 +128,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AffiliationsRoute: AffiliationsRoute,
+  ClienteleRoute: ClienteleRoute,
   ProductsRoute: ProductsRoute,
   SolutionsRoute: SolutionsRoute,
   ValueAddedServicesRoute: ValueAddedServicesRoute,

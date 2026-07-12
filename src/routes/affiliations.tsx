@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "motion/react";
+import { motion, useMotionValue, useSpring, useReducedMotion } from "motion/react";
 import { PremiumNav } from "@/components/PremiumNav";
 import { PremiumFooter } from "@/components/PremiumFooter";
 import { useMailtoHref } from "@/lib/contact";
@@ -39,6 +40,25 @@ const INDUSTRIES = [
   "Personal Care",
   "Industrial",
   "Luxury",
+];
+
+const SECTORS = [
+  "Pharmaceutical",
+  "Automotive",
+  "Food & Drink",
+  "Information Technology",
+  "Fashion & Apparel",
+  "FMCG",
+  "Education",
+  "Movies & Entertainment",
+  "Media",
+  "Hospitality",
+  "Agriculture",
+  "Service Industry",
+  "Cosmetics",
+  "Real Estate",
+  "Electronics",
+  "Chocolate & Confectionery",
 ];
 
 function IconLock() {
@@ -88,6 +108,115 @@ function IconMail() {
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="M2 7l10 7 10-7" />
     </svg>
+  );
+}
+
+const sectorGridVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.045, delayChildren: 0.08 } },
+};
+
+const sectorCellVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+};
+
+/** Registration-mark corner brackets — a nod to print crop marks, purely decorative. */
+function CropMarks({ visible }: { visible: boolean }) {
+  const corners = [
+    "top-2.5 left-2.5 border-t border-l",
+    "top-2.5 right-2.5 border-t border-r",
+    "bottom-2.5 left-2.5 border-b border-l",
+    "bottom-2.5 right-2.5 border-b border-r",
+  ];
+  return (
+    <>
+      {corners.map((cls, i) => (
+        <motion.span
+          key={cls}
+          aria-hidden
+          animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0.6 }}
+          transition={{ duration: 0.35, ease: EASE, delay: visible ? i * 0.03 : 0 }}
+          className={`pointer-events-none absolute w-2.5 h-2.5 ${cls}`}
+          style={{ borderColor: "var(--gold)" }}
+        />
+      ))}
+    </>
+  );
+}
+
+function SectorCell({ index, name }: { index: number; name: string }) {
+  const prefersReduced = useReducedMotion();
+  const [hovered, setHovered] = useState(false);
+  const rawX = useMotionValue(-9999);
+  const rawY = useMotionValue(-9999);
+  const glowX = useSpring(rawX, { stiffness: 120, damping: 22 });
+  const glowY = useSpring(rawY, { stiffness: 120, damping: 22 });
+
+  return (
+    <motion.div
+      variants={sectorCellVariants}
+      role="listitem"
+      aria-label={name}
+      className="group relative flex flex-col justify-end min-h-[10rem] md:min-h-[11rem] border-r border-b border-[var(--sand-300)] px-6 py-8 md:px-7 md:py-9 overflow-hidden select-none"
+      onMouseMove={(e) => {
+        if (prefersReduced) return;
+        const rect = e.currentTarget.getBoundingClientRect();
+        rawX.set(e.clientX - rect.left);
+        rawY.set(e.clientY - rect.top);
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => {
+        setHovered(false);
+        rawX.set(-9999);
+        rawY.set(-9999);
+      }}
+    >
+      {!prefersReduced && (
+        <motion.div
+          aria-hidden
+          animate={{ opacity: hovered ? 1 : 0 }}
+          transition={{ duration: 0.6, ease: EASE }}
+          style={{
+            position: "absolute",
+            left: glowX,
+            top: glowY,
+            width: 220,
+            height: 220,
+            x: "-50%",
+            y: "-50%",
+            borderRadius: "50%",
+            background: "radial-gradient(circle, oklch(0.72 0.11 75 / 0.12) 0%, transparent 72%)",
+            pointerEvents: "none",
+          }}
+        />
+      )}
+
+      <CropMarks visible={hovered && !prefersReduced} />
+
+      <span
+        aria-hidden
+        className="pointer-events-none absolute right-5 top-5 font-display text-[2.6rem] leading-none transition-colors duration-500"
+        style={{ color: hovered ? "oklch(0.72 0.11 75 / 0.32)" : "var(--sand-200)" }}
+      >
+        {String(index).padStart(2, "0")}
+      </span>
+
+      <span
+        className="relative font-display text-[1.35rem] md:text-[1.5rem] leading-tight tracking-tight transition-transform duration-300 ease-out"
+        style={{ transform: hovered ? "translateX(4px)" : "translateX(0)" }}
+      >
+        {name}
+      </span>
+
+      <span
+        className="relative mt-2 h-px w-6 transition-all duration-300 ease-out"
+        style={{
+          backgroundColor: hovered ? "var(--gold)" : "var(--sand-300)",
+          width: hovered ? "2.5rem" : "1.5rem",
+        }}
+      />
+    </motion.div>
   );
 }
 
@@ -167,6 +296,44 @@ function ClientelePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Sectors served ───────────────────────────────────────────────── */}
+      <section className="border-t border-[var(--sand-300)]">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-8 py-24 md:py-36">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: EASE }}
+          >
+            <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-[var(--sand-700)]">
+              <span className="h-px w-8 bg-[var(--sand-400)]" />
+              Sectors served
+            </div>
+            <h2 className="mt-8 font-display text-[clamp(2.2rem,4.5vw,4rem)] leading-[1.02] tracking-tight max-w-3xl">
+              Sixteen industries.<br />
+              <span className="italic font-light">One standard of craft.</span>
+            </h2>
+            <p className="mt-6 max-w-lg text-[var(--sand-700)] leading-relaxed">
+              From pharmaceutical cartons to movie packaging, DGV Company's
+              presses have printed for nearly every sector of Indian industry.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={sectorGridVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-10%" }}
+            role="list"
+            aria-label="Sectors DGV Company has served"
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 border-t border-l border-[var(--sand-300)]"
+          >
+            {SECTORS.map((name, i) => (
+              <SectorCell key={name} index={i + 1} name={name} />
+            ))}
+          </motion.div>
         </div>
       </section>
 

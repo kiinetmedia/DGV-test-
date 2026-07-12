@@ -272,7 +272,7 @@ const PRODUCT_ROWS = [
   },
   {
     code: "02",
-    title: "Barcode Labels",
+    title: "Labels",
     description: "Product, pharmaceutical, cosmetic, FMCG, food and chemical labels in vinyl, transparent and tamper-evident formats — precision printed for accurate, scannable results at volume.",
     href: "/products#barcode-labels",
   },
@@ -296,7 +296,7 @@ const PRODUCT_ROWS = [
   },
   {
     code: "06",
-    title: "Marketing & Branding",
+    title: "Marketing, Branding & Sales Promotion",
     description: "Catalogues, corporate profiles, annual reports, presentation folders, estimate pads, danglers and other exhibition materials designed to convert and built to impress.",
     href: "/products#marketing-branding",
   },
@@ -305,6 +305,18 @@ const PRODUCT_ROWS = [
     title: "Corrugated Boxes",
     description: "E-commerce, standard, heavy-duty and die-cut corrugated formats with custom print — structural engineering for transit protection at every scale.",
     href: "/products#corrugated-boxes",
+  },
+  {
+    code: "08",
+    title: "Stand Up Pouch",
+    description: "Kraft, zipper resealable, spouted and flat bottom pouches — flexible, shelf-ready packaging printed and finished for FMCG, food and personal care brands.",
+    href: "/products#stand-up-pouch",
+  },
+  {
+    code: "09",
+    title: "Mono Cartons",
+    description: "Tuck-end, auto-bottom, pharmaceutical, cosmetic and FMCG folding cartons — printed and finished at volume with dimensional and colour consistency reorder after reorder.",
+    href: "/products#mono-cartons",
   },
 ];
 

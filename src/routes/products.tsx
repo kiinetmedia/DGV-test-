@@ -243,7 +243,7 @@ const SEO_SECTIONS: SeoSection[] = [
   {
     id: "marketing-branding",
     code: "05",
-    title: "Marketing & Branding",
+    title: "Marketing, Branding & Sales Promotion",
     positioning:
       "A corporate profile or presentation folder is often the last printed material a decision-maker handles before forming a view. We produce it at a standard that confirms the impression your team worked to create — not one that quietly undermines it.",
     differentiators: [
@@ -273,6 +273,7 @@ const SEO_SECTIONS: SeoSection[] = [
       { format: "Product catalogues", when: "comprehensive range documentation for trade buyers, wholesale and retail presentations" },
       { format: "Corporate profiles & annual reports", when: "investor relations, stakeholder communications, board-level documents" },
       { format: "Presentation folders", when: "sales pitches, tenders, new business development — carries the collateral without compromising it" },
+      { format: "Estimate pads", when: "field sales and service teams issuing on-site quotations; carbonless duplicate sets with sequential numbering" },
       { format: "Danglers & wobblers", when: "retail shelf and gondola POS; attention capture in FMCG and pharmacy environments" },
       { format: "Exhibition materials", when: "trade show presence from roller banners to full-scale fabric backdrops, 3–7 day turnaround" },
     ],
@@ -343,6 +344,112 @@ const SEO_SECTIONS: SeoSection[] = [
       {
         q: "How do I decide between flexographic and litho-laminated print for corrugated boxes?",
         a: "Flexographic is right for functional shipping boxes where brand visibility matters but is not primary — 1–4 colours, cost-efficient at volume, fast turnaround. Litho-laminated treats the box as a brand surface — full CMYK, photographic quality, smooth board liner. The decision comes down to brand intent: is this a shipping box that carries your logo, or a brand experience that happens to be a box?",
+      },
+    ],
+  },
+  {
+    id: "stand-up-pouch",
+    code: "07",
+    title: "Stand Up Pouch",
+    positioning:
+      "A stand-up pouch competes for shelf attention while doing the structural job of a rigid container at a fraction of the material and freight cost. We specify every pouch to the product it holds — barrier layer, seal strength, and stand stability — rather than supplying a generic flexible format.",
+    differentiators: [
+      {
+        label: "Barrier specification to product, not default",
+        detail:
+          "Laminate structure is matched to shelf-life requirement and product category — moisture barrier for powders, oxygen barrier for oils and snacks, aroma barrier for coffee and spices. The default isn't a single generic film.",
+      },
+      {
+        label: "Seal integrity tested before volume release",
+        detail:
+          "Every new pouch specification is seal-tested for burst strength and leak resistance before production is committed at scale, so line performance is confirmed before the first commercial batch.",
+      },
+      {
+        label: "Rotogravure and digital, one facility",
+        detail:
+          "Long-run rotogravure for established SKUs and short-run digital print for new launches and limited editions are both produced in-house — no reprint delay when a new SKU needs to move fast.",
+      },
+    ],
+    applications: [
+      "FMCG and food brands packaging snacks, spices, coffee, and dry goods",
+      "Personal care and cosmetics brands using refill and travel-format pouches",
+      "Nutraceutical and supplement brands requiring barrier protection for powders and capsules",
+      "Pet food and agricultural brands needing durable, resealable retail formats",
+    ],
+    decisionGuide: [
+      { format: "Kraft stand-up pouch", when: "natural, sustainability-forward positioning — coffee, grains, snacks with a premium-rustic shelf presence" },
+      { format: "Zipper resealable", when: "any product used across multiple sittings — snacks, pet food, powders where reseal integrity affects repeat purchase" },
+      { format: "Spouted pouch", when: "liquids and semi-liquids — sauces, personal care refills, baby food requiring controlled pour or dispensing" },
+      { format: "Flat bottom pouch", when: "premium shelf presentation with maximum print real estate — coffee, snacks, pet food competing at eye level" },
+      { format: "Metallized / foil pouch", when: "maximum barrier requirement — light and oxygen-sensitive products needing extended shelf life" },
+    ],
+    techRef:
+      "Laminates: PET/AL/PE, PET/MET-PET/PE, BOPP/CPP, kraft paper/PE. Barrier: moisture, oxygen and aroma barrier options by product category. Print: rotogravure up to 10 colour, digital for short runs. Closures: zipper, spout, tin-tie.",
+    faqs: [
+      {
+        q: "What is your minimum order quantity for stand-up pouches?",
+        a: "Standard minimum is 10,000 units per SKU for rotogravure production. Digital print runs are available from 2,000 units for new launches, samples, and limited editions, at a higher per-unit cost.",
+      },
+      {
+        q: "Can you match the barrier specification to my product's shelf-life requirement?",
+        a: "Yes. We select the laminate structure — moisture, oxygen, or aroma barrier — based on your product category and required shelf life, and confirm seal and burst strength before volume production is released.",
+      },
+      {
+        q: "What is the difference between a zipper pouch and a flat bottom pouch?",
+        a: "Zipper pouches prioritise reseal function — the right choice whenever a product is consumed across multiple sittings. Flat bottom pouches prioritise shelf presentation — a wider base gives maximum print real estate and a premium, self-standing shelf presence. The decision comes down to whether reseal or shelf stand-out matters more for your product.",
+      },
+    ],
+  },
+  {
+    id: "mono-cartons",
+    code: "08",
+    title: "Mono Cartons",
+    positioning:
+      "A mono carton is folded, opened, and inspected before a single word of marketing reaches the customer — dimensional accuracy and print consistency are not finishing details, they are the specification. We engineer every carton to a documented dieline and colour standard so unit 1 and unit 100,000 fold identically.",
+    differentiators: [
+      {
+        label: "Dieline engineering to product fit",
+        detail:
+          "Cartons are engineered to the actual product dimensions and tolerance, not a standard template — reducing rattle, crush damage, and line-fill inconsistency at the customer's packing stage.",
+      },
+      {
+        label: "Pharma and cosmetic-grade print compliance",
+        detail:
+          "Batch coding, tamper-evidence, and regulatory text placement are built into the pre-press process for pharmaceutical and personal care cartons — not added as an afterthought before plating.",
+      },
+      {
+        label: "High-speed folder-gluer production",
+        detail:
+          "Automated folding and gluing lines deliver dimensional consistency at volume, with in-line quality checks on every run so carton-to-carton variation stays within documented tolerance.",
+      },
+    ],
+    applications: [
+      "Pharmaceutical manufacturers requiring regulatory-compliant carton printing and batch coding",
+      "Cosmetics and personal care brands needing shelf-ready secondary packaging",
+      "FMCG and food brands cartoning at high-volume production line speed",
+      "Nutraceutical and supplement brands requiring tamper-evident carton closures",
+    ],
+    decisionGuide: [
+      { format: "Tuck-end carton", when: "standard secondary packaging at volume — the most common, cost-efficient folding carton format" },
+      { format: "Auto-bottom carton", when: "heavier products or high-speed automated line filling, where a self-locking base speeds packing" },
+      { format: "Pharmaceutical carton", when: "regulatory batch coding, tamper-evidence and leaflet accommodation are non-negotiable" },
+      { format: "Cosmetic & personal care carton", when: "shelf presentation and tactile finish matter as much as structural function" },
+      { format: "FMCG & food carton", when: "high-volume line speed and food-contact-safe substrates are the primary requirement" },
+    ],
+    techRef:
+      "Board: FBB and SBS 250–450 GSM, recycled board options. Print: offset up to 6 colour, UV and aqueous coating. Finishes: matte/gloss lamination, spot UV, foil blocking, embossing. Closures: tuck-end, auto-bottom, lock-bottom.",
+    faqs: [
+      {
+        q: "What is your minimum order quantity for mono cartons?",
+        a: "Standard minimum is 5,000 units per SKU for offset production. Smaller pilot and sample runs can be accommodated on a case-by-case basis, particularly for pharmaceutical and cosmetic launches.",
+      },
+      {
+        q: "Can you print regulatory batch coding and tamper-evident features on pharmaceutical cartons?",
+        a: "Yes. Batch numbers, expiry dates, and regulatory text are built into the pre-press file and verified before plating. Tamper-evident closures and security features are specified at the same stage.",
+      },
+      {
+        q: "What is the difference between a tuck-end and auto-bottom carton?",
+        a: "Tuck-end cartons are the standard, cost-efficient format — folded and tucked by hand or standard line equipment. Auto-bottom cartons have a self-locking base that opens flat with a single push, suited to heavier products or high-speed automated filling lines. The decision comes down to product weight and your packing line's speed requirement.",
       },
     ],
   },

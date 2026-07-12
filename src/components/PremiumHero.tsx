@@ -291,7 +291,7 @@ export function PremiumHero() {
         style={{ zIndex: 20 }}
       >
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <HeroStat
               icon={
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" className="w-5 h-5">
@@ -333,6 +333,17 @@ export function PremiumHero() {
                 </svg>
               }
               value="1,000+ Tons" label="Paper Converted / Year" delay={1.35}
+            />
+            <HeroStat
+              icon={
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                  <circle cx="7.25" cy="7" r="2.75"/>
+                  <path d="M2.5 16.5c0-2.9 2.1-4.5 4.75-4.5s4.75 1.6 4.75 4.5"/>
+                  <circle cx="14" cy="6.5" r="2"/>
+                  <path d="M13 12.2c1.85.35 3.5 1.65 3.5 4.3"/>
+                </svg>
+              }
+              value="100+" label="Clients Served" delay={1.5}
             />
           </div>
         </div>

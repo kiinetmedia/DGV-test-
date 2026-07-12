@@ -34,8 +34,9 @@ import printLetterhead from "@/assets/products/print-letterhead.webp";
 import printNotebooks from "@/assets/products/print-notebooks.webp";
 import printCorporateStationery from "@/assets/products/print-corporate-stationery.webp";
 
-// Barcode Labels
+// Labels
 import labelProductBarcode from "@/assets/products/label-product-barcode.webp";
+import labelBarcodeOnly from "@/assets/products/label-barcode-only.webp";
 import labelPharmaceutical from "@/assets/products/label-pharmaceutical.webp";
 import labelCosmetic from "@/assets/products/label-cosmetic.webp";
 import labelFmcgFood from "@/assets/products/label-fmcg-food.webp";
@@ -50,12 +51,13 @@ import calCorporateDiaries from "@/assets/products/cal-corporate-diaries.webp";
 import calExecutiveDiaries from "@/assets/products/cal-executive-diaries.webp";
 import calCustomDiaries from "@/assets/products/cal-custom-diaries.webp";
 
-// Marketing & Branding
+// Marketing, Branding & Sales Promotion
 import mktProductCatalogues from "@/assets/products/mkt-product-catalogues.webp";
 import mktAnnualReports from "@/assets/products/mkt-annual-reports.webp";
 import mktCorporateFiles from "@/assets/products/mkt-corporate-files.webp";
 import mktDanglersWobblers from "@/assets/products/mkt-danglers-wobblers.webp";
 import mktExhibitionMaterials from "@/assets/products/mkt-exhibition-materials.webp";
+import mktEstimatePads from "@/assets/products/mkt-estimate-pads.webp";
 
 // Corrugated Boxes
 import corrEcommerce from "@/assets/products/corr-ecommerce.webp";
@@ -63,6 +65,20 @@ import corrStandard from "@/assets/products/corr-standard.webp";
 import corrHeavyDuty from "@/assets/products/corr-heavy-duty.webp";
 import corrCustomPrinted from "@/assets/products/corr-custom-printed.webp";
 import corrDieCut from "@/assets/products/corr-die-cut.webp";
+
+// Stand Up Pouch
+import pouchKraft from "@/assets/products/pouch-kraft.webp";
+import pouchZipper from "@/assets/products/pouch-zipper.webp";
+import pouchSpouted from "@/assets/products/pouch-spouted.webp";
+import pouchFlatBottom from "@/assets/products/pouch-flat-bottom.webp";
+import pouchMetallized from "@/assets/products/pouch-metallized.webp";
+
+// Mono Cartons
+import cartonTuckEnd from "@/assets/products/carton-tuck-end.webp";
+import cartonAutoBottom from "@/assets/products/carton-auto-bottom.webp";
+import cartonPharma from "@/assets/products/carton-pharma.webp";
+import cartonCosmetic from "@/assets/products/carton-cosmetic.webp";
+import cartonFmcgFood from "@/assets/products/carton-fmcg-food.webp";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -487,7 +503,7 @@ const ATLAS: Category[] = [
   {
     id: "barcode-labels",
     code: "04",
-    title: "Barcode Labels",
+    title: "Labels",
     intro:
       "Precision-printed self-adhesive labels for product identification, compliance and traceability — produced on high-speed narrow-web flexographic presses across paper, film and specialty label stocks.",
     image: labelProductBarcode,
@@ -495,22 +511,41 @@ const ATLAS: Category[] = [
     subtypes: [
       {
         id: "product-barcode-labels",
-        name: "Product & Barcode Labels",
-        tagline: "Every unit, identified and traceable.",
+        name: "Product Labels",
+        tagline: "Every unit, identified and on-brand.",
         description:
-          "Product and barcode labels are produced on narrow-web flexographic presses for exceptional print consistency at volume, with printing, varnishing, die-cutting, slitting and rewinding completed in a single continuous pass.",
+          "Product labels are produced on narrow-web flexographic presses for exceptional print consistency at volume, with printing, varnishing, die-cutting, slitting and rewinding completed in a single continuous pass.",
         capabilities: [
           "Single-pass print, varnish and die-cut",
           "Water-based, UV-curable and LED UV ink systems",
           "Slitting and rewinding to roll or sheet",
-          "Sequential and variable barcode data",
+          "Full CMYK + Pantone brand colour accuracy",
         ],
-        useCases: ["Product identification", "Inventory and warehouse tracking", "Retail point-of-sale scanning"],
+        useCases: ["Product identification", "Brand and SKU labelling", "Retail shelf presentation"],
         materials: ["Self-adhesive paper", "PP (BOPP)", "PET", "Specialty label stocks"],
         finishes: ["Gloss and matte lamination", "UV varnish coating", "Die-cut to shape"],
         pairings: ["commercial-printing", "marketing-branding"],
         image: labelProductBarcode,
-        imageAlt: "Roll and sheet barcode labels applied to bottles, jars, cartons and boxes with matching gold hexagon brand mark",
+        imageAlt: "Roll and sheet product labels applied to bottles, jars, cartons and boxes with matching gold hexagon brand mark",
+      },
+      {
+        id: "barcode-only-labels",
+        name: "Barcode Labels",
+        tagline: "Scannable, accurate, first time, every time.",
+        description:
+          "Barcode labels are produced with verified scan-grade contrast and bar width accuracy — EAN, UPC, GS1-128 and QR formats printed and grade-checked before dispatch, with sequential and variable data run inline for consignment-level traceability.",
+        capabilities: [
+          "Barcode grade verification before dispatch",
+          "EAN, UPC, GS1-128, Code 128 and QR formats",
+          "Sequential and variable data printing",
+          "High-speed narrow-web production",
+        ],
+        useCases: ["Warehouse and inventory tracking", "Retail point-of-sale scanning", "Logistics and consignment traceability"],
+        materials: ["Self-adhesive paper", "PP (BOPP)", "Thermal transfer stocks"],
+        finishes: ["Matte lamination", "UV varnish coating", "Die-cut to shape"],
+        pairings: ["commercial-printing", "corrugated-boxes"],
+        image: labelBarcodeOnly,
+        imageAlt: "DGV Company barcode label rolls and sheets with item codes, MRP, serial numbers and QR codes on a carton and label rolls",
       },
       {
         id: "pharmaceutical-labels",
@@ -737,11 +772,11 @@ const ATLAS: Category[] = [
   {
     id: "marketing-branding",
     code: "06",
-    title: "Marketing & Branding",
+    title: "Marketing, Branding & Sales Promotion",
     intro:
       "Print collaterals that carry your brand into presentations, exhibitions and decision-maker hands — finished to a standard that communicates before a word is read.",
     image: mktProductCatalogues,
-    imageAlt: "Premium marketing and branding collateral including folders and exhibition materials",
+    imageAlt: "Premium marketing, branding and sales promotion collateral including folders and exhibition materials",
     subtypes: [
       {
         id: "product-catalogues",
@@ -799,6 +834,25 @@ const ATLAS: Category[] = [
         pairings: ["commercial-printing", "marketing-branding"],
         image: mktCorporateFiles,
         imageAlt: "Premium presentation folder with double pocket and embossed corporate logo",
+      },
+      {
+        id: "estimate-pads",
+        name: "Estimate Pads",
+        tagline: "The quote that closes the deal, on the spot.",
+        description:
+          "Estimate pads are produced as carbonless duplicate or triplicate books for field sales and service teams — pre-numbered, branded, and formatted to your quotation fields so a written estimate can be issued and countersigned on-site. We handle sequential numbering, perforation, and pad binding to match your existing paperwork trail.",
+        capabilities: [
+          "Carbonless 2-part and 3-part sets",
+          "Sequential/pre-numbered pages",
+          "Perforated tear-off sheets",
+          "Custom field layout to your format",
+        ],
+        useCases: ["Field sales and on-site quotations", "Service and repair estimates", "Dealer and distributor order books"],
+        materials: ["Carbonless (NCR) paper 55–80 GSM", "Art board 250–300 GSM backing"],
+        finishes: ["Padding with gum binding", "Perforation", "Sequential numbering"],
+        pairings: ["commercial-printing", "marketing-branding"],
+        image: mktEstimatePads,
+        imageAlt: "Branded carbonless estimate pads for Prism Packaging, Nexora Solutions and Verda Enterprises with numbered line-item tables",
       },
       {
         id: "danglers-wobblers",
@@ -946,16 +1000,230 @@ const ATLAS: Category[] = [
       },
     ],
   },
+  {
+    id: "stand-up-pouch",
+    code: "08",
+    title: "Stand Up Pouch",
+    intro:
+      "Flexible, shelf-ready pouches across kraft, zipper resealable, spouted, flat bottom and metallized formats — barrier and seal specified to the product they hold.",
+    image: pouchKraft,
+    imageAlt: "Assortment of kraft stand-up pouches in multiple sizes with coffee beans, cashews, peas and tea",
+    subtypes: [
+      {
+        id: "kraft-pouches",
+        name: "Kraft Stand-Up Pouches",
+        tagline: "Natural shelf presence. Barrier where it counts.",
+        description:
+          "Kraft stand-up pouches pair a natural paper-look surface with an internal barrier laminate, giving coffee, snack and dry goods brands a premium-rustic shelf presence without compromising on moisture or aroma protection.",
+        capabilities: [
+          "Kraft paper/PE and paper/foil laminate options",
+          "Matte, natural finish with high-opacity print",
+          "Rotogravure print up to 10 colour",
+          "Tin-tie, zipper or heat-seal closure",
+        ],
+        useCases: ["Coffee and tea", "Snacks and dry goods", "Grains, pulses and specialty foods"],
+        materials: ["Kraft paper/PE", "Kraft/foil laminate", "Matte BOPP overlay"],
+        finishes: ["Matte lamination", "Spot gloss", "Foil blocking on header"],
+        pairings: ["commercial-printing", "corrugated-boxes"],
+        image: pouchKraft,
+        imageAlt: "Assortment of kraft stand-up pouches in multiple sizes with coffee beans, cashews, peas and tea",
+      },
+      {
+        id: "zipper-pouches",
+        name: "Zipper Resealable Pouches",
+        tagline: "Opened once. Sealed every time after.",
+        description:
+          "Zipper resealable pouches are specified wherever a product is consumed across multiple sittings — the press-to-close mechanism is seal-tested for repeated open-close cycles without loss of barrier integrity.",
+        capabilities: [
+          "Press-to-close and slider zipper options",
+          "Repeated open-close seal integrity testing",
+          "Laser score for easy-tear opening",
+          "Digital and rotogravure print",
+        ],
+        useCases: ["Snacks and confectionery", "Pet food and treats", "Powders and nutraceuticals"],
+        materials: ["PET/PE laminate", "BOPP/CPP laminate", "Metallized PET options"],
+        finishes: ["Gloss and matte lamination", "Spot UV on header", "Laser scoring"],
+        pairings: ["commercial-printing", "marketing-branding"],
+        image: pouchZipper,
+        imageAlt: "Zipper resealable stand-up pouches in green, white, kraft and black with almonds, granola, cashews, chocolate beans and tea",
+      },
+      {
+        id: "spouted-pouches",
+        name: "Spouted Pouches",
+        tagline: "Controlled pour. No compromise on barrier.",
+        description:
+          "Spouted pouches are engineered for liquids and semi-liquids — sauces, personal care refills, baby food — with the spout welded for leak-proof seal integrity and sized to the product's viscosity and intended dispensing.",
+        capabilities: [
+          "Corner and center spout welding",
+          "Child-resistant and tamper-evident cap options",
+          "Leak and drop testing before volume release",
+          "Custom spout diameter to product viscosity",
+        ],
+        useCases: ["Sauces and condiments", "Personal care refills", "Baby food and purees"],
+        materials: ["PET/AL/PE laminate", "PET/MET-PET/PE laminate", "HDPE spout and cap"],
+        finishes: ["Gloss lamination", "Matte lamination", "Tamper-evident band"],
+        pairings: ["rigid-boxes", "commercial-printing"],
+        image: pouchSpouted,
+        imageAlt: "Spouted pouches for olive oil, protein shake, mango puree, mineral water and ketchup with screw-cap spouts",
+      },
+      {
+        id: "flat-bottom-pouches",
+        name: "Flat Bottom Pouches",
+        tagline: "Stands like a box. Prints like a poster.",
+        description:
+          "Flat bottom pouches give brands the widest print canvas in the flexible format range, with a self-standing base that presents like a rigid container on shelf — the format of choice when shelf stand-out matters more than reseal.",
+        capabilities: [
+          "Wide flat base for maximum print real estate",
+          "Side-gusset structural reinforcement",
+          "Rotogravure full-CMYK print",
+          "Zipper or heat-seal closure options",
+        ],
+        useCases: ["Premium coffee and specialty foods", "Pet food", "Premium snacks competing at eye level"],
+        materials: ["PET/AL/PE laminate", "BOPP/CPP laminate", "Kraft/PE laminate"],
+        finishes: ["Gloss and matte lamination", "Spot UV", "Soft-touch matte film"],
+        pairings: ["marketing-branding", "commercial-printing"],
+        image: pouchFlatBottom,
+        imageAlt: "Flat bottom stand-up pouches for quinoa, coffee beans, almonds, dried cranberries and sea salt with wide print panels",
+      },
+      {
+        id: "metallized-pouches",
+        name: "Metallized & Foil Pouches",
+        tagline: "Maximum barrier. Extended shelf life.",
+        description:
+          "Metallized and foil pouches deliver the highest barrier performance in the flexible packaging range — specified wherever light and oxygen exposure would otherwise limit shelf life, from supplements to light-sensitive snack products.",
+        capabilities: [
+          "Aluminium foil and metallized PET laminate options",
+          "High-opacity light and oxygen barrier",
+          "Rotogravure print with metallic ground",
+          "Zipper, spout or heat-seal closure",
+        ],
+        useCases: ["Nutraceuticals and supplements", "Light-sensitive snacks", "Export and long shelf-life products"],
+        materials: ["PET/AL/PE laminate", "Metallized PET/PE laminate", "Foil laminate"],
+        finishes: ["Metallic gravure print", "Matte and gloss overlay", "Spot gloss on foil"],
+        pairings: ["rigid-boxes", "corrugated-boxes"],
+        image: pouchMetallized,
+        imageAlt: "Metallized and foil stand-up pouches in gold, silver, copper, holographic and matte black finishes",
+      },
+    ],
+  },
+  {
+    id: "mono-cartons",
+    code: "09",
+    title: "Mono Cartons",
+    intro:
+      "Tuck-end, auto-bottom, pharmaceutical, cosmetic and FMCG folding cartons — engineered to dieline and colour specification for consistent fold, fit and finish at any volume.",
+    image: cartonTuckEnd,
+    imageAlt: "Assortment of premium tuck-end mono cartons in matte finishes with foil-blocked brand logos",
+    subtypes: [
+      {
+        id: "tuck-end-cartons",
+        name: "Tuck-End Cartons",
+        tagline: "The standard. Engineered to fold identically every time.",
+        description:
+          "Tuck-end cartons are the most widely used folding carton format — a single dieline producing a consistent fold, tuck, and closure across high-volume production runs. Specified for dimensional accuracy against the product's actual fit, not a generic template.",
+        capabilities: [
+          "Straight and reverse tuck configurations",
+          "Dieline engineered to product tolerance",
+          "High-speed folder-gluer production",
+          "Offset print up to 6 colour",
+        ],
+        useCases: ["General FMCG secondary packaging", "Retail carton at volume", "Standard product cartoning"],
+        materials: ["FBB 250–350 GSM", "SBS 250–350 GSM", "Recycled board options"],
+        finishes: ["Matte and gloss lamination", "Spot UV", "Foil blocking"],
+        pairings: ["commercial-printing", "corrugated-boxes"],
+        image: cartonTuckEnd,
+        imageAlt: "Tuck-end mono cartons with foil-blocked logos, one shown open revealing the tuck closure",
+      },
+      {
+        id: "auto-bottom-cartons",
+        name: "Auto-Bottom Cartons",
+        tagline: "One push. Self-locking base. Faster line speed.",
+        description:
+          "Auto-bottom cartons open flat into a self-locking base with a single push — engineered for heavier products and high-speed automated filling lines where manual tuck-end assembly would slow the packing process.",
+        capabilities: [
+          "Self-locking crash-lock base",
+          "Rated for heavier product fill weights",
+          "Automated line-fill compatible",
+          "Offset print up to 6 colour",
+        ],
+        useCases: ["Heavier FMCG products", "Automated high-speed filling lines", "Food and beverage cartoning"],
+        materials: ["FBB 300–400 GSM", "SBS 300–400 GSM", "Recycled board options"],
+        finishes: ["Matte and gloss lamination", "Spot UV", "Aqueous coating"],
+        pairings: ["corrugated-boxes", "commercial-printing"],
+        image: cartonAutoBottom,
+        imageAlt: "Premium slim mono cartons in matte and metallic finishes for fragrance and personal care brands",
+      },
+      {
+        id: "pharma-cartons",
+        name: "Pharmaceutical Cartons",
+        tagline: "Regulatory compliance, built into pre-press.",
+        description:
+          "Pharmaceutical cartons are produced with batch coding, expiry dating, and regulatory text verified at pre-press stage, and tamper-evident closures specified to compliance requirement — precision at the standard the category demands.",
+        capabilities: [
+          "Batch and expiry variable coding",
+          "Tamper-evident closure options",
+          "Leaflet and insert accommodation",
+          "Pharma-grade board and ink systems",
+        ],
+        useCases: ["Prescription and OTC pharmaceutical packaging", "Blister and bottle secondary cartons", "Cold-chain pharma cartoning"],
+        materials: ["Pharma-grade FBB 300–350 GSM", "SBS with barrier coating"],
+        finishes: ["Matte lamination", "Tamper-evident seal", "Embossed batch panel"],
+        pairings: ["commercial-printing", "rigid-boxes"],
+        image: cartonPharma,
+        imageAlt: "Pharmaceutical mono cartons for tablets, inhalers, syrups, capsules and topical cream tubes",
+      },
+      {
+        id: "cosmetic-cartons",
+        name: "Cosmetic & Personal Care Cartons",
+        tagline: "Shelf presentation. Tactile finish. Structural fit.",
+        description:
+          "Cosmetic and personal care cartons combine precise product-fit dielines with premium tactile finishing — soft-touch lamination, foil, and spot UV — so the secondary packaging matches the standard of the product it contains.",
+        capabilities: [
+          "Product-specific interior fit dielines",
+          "Premium tactile finish options",
+          "Full CMYK + Pantone colour accuracy",
+          "Window patching for product visibility",
+        ],
+        useCases: ["Skincare and beauty retail", "Personal care and grooming products", "Premium gifting sets"],
+        materials: ["Art board 300–400 GSM", "Recycled and FSC-certified stocks"],
+        finishes: ["Soft-touch lamination", "Foil blocking", "Spot UV", "Embossing"],
+        pairings: ["rigid-boxes", "marketing-branding"],
+        image: cartonCosmetic,
+        imageAlt: "Cosmetic and personal care mono cartons for face serum, face wash, moisturizer, lip balm, sunscreen and hair oil",
+      },
+      {
+        id: "fmcg-cartons",
+        name: "FMCG & Food Cartons",
+        tagline: "Line speed and food-safe substrate, matched to volume.",
+        description:
+          "FMCG and food cartons are produced on food-contact-safe substrates at the production speed high-volume distribution demands, with dimensional consistency held across every run so the packing line never has to compensate for the carton.",
+        capabilities: [
+          "Food-contact-safe board certification",
+          "High-speed folder-gluer production",
+          "Consistent dimensional tolerance at volume",
+          "Water-based and UV coating options",
+        ],
+        useCases: ["Food and snack cartoning", "FMCG retail distribution", "High-volume production line packing"],
+        materials: ["Food-grade FBB 250–350 GSM", "Recycled board options"],
+        finishes: ["Gloss and matte lamination", "Water-based varnish", "Spot UV"],
+        pairings: ["corrugated-boxes", "commercial-printing"],
+        image: cartonFmcgFood,
+        imageAlt: "FMCG and food mono cartons for oats, tea, sunflower oil, coffee, basmati rice and millet cookies",
+      },
+    ],
+  },
 ];
 
 const CAT_LABELS: Record<string, string> = {
   "rigid-boxes": "Rigid Boxes",
   "paper-bags": "Paper Bags",
   "commercial-printing": "Commercial Printing",
-  "barcode-labels": "Barcode Labels",
+  "barcode-labels": "Labels",
   "calendars-diaries": "Calendars & Diaries",
-  "marketing-branding": "Marketing & Branding",
+  "marketing-branding": "Marketing, Branding & Sales Promotion",
   "corrugated-boxes": "Corrugated Boxes",
+  "stand-up-pouch": "Stand Up Pouch",
+  "mono-cartons": "Mono Cartons",
 };
 
 /* ─────────────────────────────────────────────────────────────────────────────

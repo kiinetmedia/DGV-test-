@@ -43,9 +43,15 @@ function SectionFallback({ minHeight = 400 }: { minHeight?: number }) {
 
 function DeferredSection({
   minHeight,
+  targetId,
   children,
 }: {
   minHeight: number;
+  // If the URL hash (on load, or later via a same-page hash link click)
+  // targets an element inside this section, mount it immediately instead
+  // of waiting for the IntersectionObserver — the target can't be
+  // scrolled to before it exists in the DOM.
+  targetId?: string;
   children: React.ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -54,6 +60,13 @@ function DeferredSection({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const matchesHash = () => !!targetId && window.location.hash === `#${targetId}`;
+    if (matchesHash()) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
@@ -64,8 +77,20 @@ function DeferredSection({
       { rootMargin: "600px 0px" }
     );
     observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+
+    const onHashChange = () => {
+      if (matchesHash()) {
+        setVisible(true);
+        observer.disconnect();
+      }
+    };
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", onHashChange);
+    };
+  }, [targetId]);
 
   return (
     <div ref={ref}>
@@ -120,18 +145,45 @@ function Index() {
     document.addEventListener("lenis:stop", onStop);
     document.addEventListener("lenis:start", onStart);
 
-    // When arriving from another page via /#contact (or any hash), Lenis
-    // suppresses the browser's native hash scroll. Detect it and scroll manually.
-    let hashTimer: ReturnType<typeof setTimeout> | null = null;
-    const hash = window.location.hash;
-    if (hash) {
-      hashTimer = setTimeout(() => {
-        lenis.scrollTo(hash, { duration: 1.4, offset: -80 });
-      }, 350);
+    // Lenis suppresses the browser's native hash scroll, so hash-link
+    // navigation (arriving from another page via /#contact, or clicking a
+    // same-page hash link) has to be scrolled to manually. The target may
+    // be inside a DeferredSection that hasn't finished mounting yet, so
+    // poll briefly for it instead of assuming it's already in the DOM.
+    let pollTimer: ReturnType<typeof setTimeout> | null = null;
+    let settleTimers: ReturnType<typeof setTimeout>[] = [];
+    const scrollToHash = (hash: string, attemptsLeft = 30) => {
+      const id = hash.slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        lenis.scrollTo(el, { duration: 1.4, offset: -80 });
+        // Other DeferredSections above this one may still be expanding
+        // from their placeholder height to real content while this scroll
+        // plays, shifting the target further down mid-animation. Re-snap
+        // a couple of times once that settles so we land in the right spot.
+        settleTimers.forEach(clearTimeout);
+        settleTimers = [900, 1800].map((delay) =>
+          setTimeout(() => lenis.scrollTo(el, { duration: 0.6, offset: -80 }), delay)
+        );
+      } else if (attemptsLeft > 0) {
+        pollTimer = setTimeout(() => scrollToHash(hash, attemptsLeft - 1), 100);
+      }
+    };
+
+    let initialTimer: ReturnType<typeof setTimeout> | null = null;
+    if (window.location.hash) {
+      initialTimer = setTimeout(() => scrollToHash(window.location.hash), 350);
     }
 
+    const onHashChange = () => scrollToHash(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+
     return () => {
-      if (hashTimer) clearTimeout(hashTimer);
+      if (initialTimer) clearTimeout(initialTimer);
+      if (pollTimer) clearTimeout(pollTimer);
+      settleTimers.forEach(clearTimeout);
+      window.removeEventListener("hashchange", onHashChange);
       document.removeEventListener("lenis:stop", onStop);
       document.removeEventListener("lenis:start", onStart);
       lenis.destroy();
@@ -154,11 +206,11 @@ function Index() {
       <DeferredSection minHeight={480}>
         <ProcessSection />
       </DeferredSection>
-      <DeferredSection minHeight={480}>
+      <DeferredSection minHeight={480} targetId="case-studies">
         <CaseStudiesSection />
       </DeferredSection>
       <FAQ />
-      <DeferredSection minHeight={420}>
+      <DeferredSection minHeight={420} targetId="contact">
         <CinematicCTA />
       </DeferredSection>
       <PremiumFooter />

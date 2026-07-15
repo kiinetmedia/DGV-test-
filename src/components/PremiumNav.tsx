@@ -874,7 +874,7 @@ export function PremiumNav() {
               onLeave={scheduleClose}
               href="/value-added-services"
             />
-            <NavLink href="/clientele" onMouseEnter={closeNow} className="hidden lg:block">Clientele</NavLink>
+            <NavLink href="/clientele" onMouseEnter={closeNow}>Clientele</NavLink>
             <NavLink href="/#contact" onMouseEnter={closeNow}>Contact</NavLink>
           </nav>
 

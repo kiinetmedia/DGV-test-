@@ -47,6 +47,7 @@ const PRODUCTS: ProductCategory[] = [
       { name: "Jewellery Boxes",         href: "/products#jewellery-boxes" },
       { name: "Cosmetic Packaging Boxes",href: "/products#cosmetic-packaging" },
       { name: "Corporate Gift Boxes",    href: "/products#corporate-gift-boxes" },
+      { name: "PR Kit Boxes",            href: "/products#pr-kit-boxes" },
     ],
   },
   {
@@ -114,6 +115,7 @@ const PRODUCTS: ProductCategory[] = [
       { name: "Danglers / Wobblers",   href: "/products#danglers-wobblers" },
       { name: "Posters",               href: "/products#marketing-branding" },
       { name: "Exhibition Materials",  href: "/products#exhibition-materials" },
+      { name: "POSM Roll",             href: "/products#posm-roll" },
     ],
   },
   {

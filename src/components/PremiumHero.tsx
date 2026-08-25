@@ -179,7 +179,7 @@ export function PremiumHero() {
       {/* ── LEFT: text content ───────────────────────────────────────────────── */}
       <motion.div
         style={{ y: copyY, opacity: copyOpacity, paddingTop: 'calc(var(--nav-h) + 1.75rem)' }}
-        className="relative z-20 flex flex-col min-h-screen pb-52 md:pb-28 px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 md:max-w-[46%]"
+        className="relative z-20 flex flex-col min-h-screen pb-80 md:pb-44 px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 md:max-w-[46%]"
       >
 
         {/* Eyebrow */}

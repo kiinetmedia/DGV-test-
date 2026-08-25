@@ -58,6 +58,7 @@ import mktCorporateFiles from "@/assets/products/mkt-corporate-files.webp";
 import mktDanglersWobblers from "@/assets/products/mkt-danglers-wobblers.webp";
 import mktExhibitionMaterials from "@/assets/products/mkt-exhibition-materials.webp";
 import mktEstimatePads from "@/assets/products/mkt-estimate-pads.webp";
+import mktPosmRoll from "@/assets/products/mkt-posm-roll.webp";
 
 // Corrugated Boxes
 import corrEcommerce from "@/assets/products/corr-ecommerce.webp";
@@ -266,6 +267,25 @@ const ATLAS: Category[] = [
         pairings: ["calendars-diaries", "marketing-branding", "commercial-printing"],
         image: rigidCorporateGift,
         imageAlt: "Corporate gift box with multi-product foam interior, branded ribbon and foil stamped logo",
+      },
+      {
+        id: "pr-kit-boxes",
+        name: "PR Kit Boxes",
+        tagline: "The unboxing moment, engineered for social.",
+        description:
+          "PR kit boxes are built for the moment they're opened on camera — product launches, influencer and media gifting, and VIP campaigns where the reveal is the content. Beyond premium print and finishing, we integrate LED light effects and custom sound activation triggered on opening, plus fully customised interior product inserts, across fully bespoke sizes, shapes and styles.",
+        capabilities: [
+          "LED light activation on box opening",
+          "Custom sound and audio effects — music, voice messages, brand announcements",
+          "Fully customised interior product inserts",
+          "100% custom size, shape and box style",
+        ],
+        useCases: ["Product launches", "Influencer and media kits", "Press kits", "VIP and brand campaign gifting"],
+        materials: ["Greyboard 1400–2400 GSM", "Premium wrap and specialty papers", "Custom foam and fabric inserts"],
+        finishes: ["Soft-touch lamination", "Spot UV", "Foil stamping", "Embossing / Debossing", "Metallic finishes"],
+        pairings: ["marketing-branding", "commercial-printing"],
+        image: rigidCorporateGift,
+        imageAlt: "Premium PR kit box with LED light activation and custom interior product insert",
       },
     ],
   },
@@ -891,6 +911,32 @@ const ATLAS: Category[] = [
         pairings: ["commercial-printing", "marketing-branding"],
         image: mktExhibitionMaterials,
         imageAlt: "Exhibition roller banner with large format brand print for trade show stand",
+      },
+      {
+        id: "posm-roll",
+        name: "POSM Roll",
+        tagline: "Large-format brand communication, by the metre.",
+        description:
+          "POSM rolls are a versatile, cost-effective format for large-area branding at retail counters, checkout points, exhibitions and promotional campaigns — custom-printed with brand identity, product communication or offer messaging and customised to the application, size and display requirement. We produce them with the same colour and finishing discipline as our other point-of-sale materials, so the branding holds up across every unit deployed.",
+        capabilities: [
+          "Single or double side printing",
+          "Offset, digital, flexographic or UV printing as applicable",
+          "CMYK, Pantone or custom colour matching",
+          "Custom width, roll length and core size",
+          "Die-cutting and perforation available",
+        ],
+        useCases: [
+          "Retail store and supermarket promotions",
+          "FMCG, pharma, cosmetics and F&B branding",
+          "Dealer and distributor branding",
+          "Exhibition and trade-show branding",
+          "Counter and checkout-area promotions",
+        ],
+        materials: ["Paper", "Synthetic media", "PP", "PVC and other suitable substrates"],
+        finishes: ["Matte or gloss lamination", "Die-cutting", "Perforation", "Optional adhesive"],
+        pairings: ["commercial-printing", "marketing-branding"],
+        image: mktPosmRoll,
+        imageAlt: "Custom printed POSM thermal roll with branded packaging box for retail point-of-sale",
       },
     ],
   },

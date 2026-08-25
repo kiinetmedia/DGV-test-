@@ -63,6 +63,7 @@ const SEO_SECTIONS: SeoSection[] = [
       { format: "Lid & base", when: "apparel, electronics, premium food — when stackability and reusability matter" },
       { format: "Foldable rigid", when: "e-commerce premium programmes where freight cost and storage space are real constraints" },
       { format: "Jewellery box", when: "ring, bangle, and necklace formats requiring interior-engineered fit at micro scale" },
+      { format: "PR kit box", when: "product launches, influencer and media gifting, VIP campaigns — LED and sound activation for a filmable unboxing moment" },
     ],
     techRef:
       "Board: 1200–2400 GSM greyboard. Wraps: art paper 130–170 GSM, textured, specialty. Finishes: soft-touch lamination, hot foil stamping, cold foil, embossing/debossing, spot UV.",
@@ -276,6 +277,7 @@ const SEO_SECTIONS: SeoSection[] = [
       { format: "Estimate pads", when: "field sales and service teams issuing on-site quotations; carbonless duplicate sets with sequential numbering" },
       { format: "Danglers & wobblers", when: "retail shelf and gondola POS; attention capture in FMCG and pharmacy environments" },
       { format: "Exhibition materials", when: "trade show presence from roller banners to full-scale fabric backdrops, 3–7 day turnaround" },
+      { format: "POSM roll", when: "large-area counter, checkout and retail branding; custom width, length and substrate for FMCG, pharma and dealer campaigns" },
     ],
     techRef:
       "Substrates: premium art board 300–400 GSM, textured and duplex stocks, synthetic and waterproof for display, PVC/acrylic for POS. Finishes: spot UV, soft-touch lamination, die-cutting, foil blocking, embossing, padding.",

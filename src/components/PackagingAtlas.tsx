@@ -18,6 +18,7 @@ import rigidFoldable from "@/assets/products/rigid-foldable.webp";
 import rigidJewellery from "@/assets/products/rigid-jewellery.webp";
 import rigidCosmetic from "@/assets/products/rigid-cosmetic.webp";
 import rigidCorporateGift from "@/assets/products/rigid-corporate-gift.webp";
+import rigidPrKit from "@/assets/products/rigid-pr-kit.webp";
 
 // Paper Bags
 import bagsKraft from "@/assets/products/bags-kraft.webp";
@@ -284,7 +285,7 @@ const ATLAS: Category[] = [
         materials: ["Greyboard 1400–2400 GSM", "Premium wrap and specialty papers", "Custom foam and fabric inserts"],
         finishes: ["Soft-touch lamination", "Spot UV", "Foil stamping", "Embossing / Debossing", "Metallic finishes"],
         pairings: ["marketing-branding", "commercial-printing"],
-        image: rigidCorporateGift,
+        image: rigidPrKit,
         imageAlt: "Premium PR kit box with LED light activation and custom interior product insert",
       },
     ],
